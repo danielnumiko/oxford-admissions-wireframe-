@@ -1049,6 +1049,55 @@
             display: none;
         }
 
+        /* Active Filters */
+        .active-filters {
+            margin-top: 20px;
+            padding: 16px 24px;
+            background-color: #F3F4F6;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .active-filters-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #666666;
+        }
+
+        .active-filters-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            flex: 1;
+        }
+
+        .filter-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background-color: #000000;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 500;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .filter-tag:hover {
+            background-color: #333333;
+        }
+
+        .filter-tag-remove {
+            font-size: 16px;
+            line-height: 1;
+            font-weight: 600;
+        }
+
         /* Pagination Controls */
         .pagination-controls {
             display: flex;
@@ -1776,6 +1825,28 @@
                             <option value="physics">Physics</option>
                             <option value="mathematics">Mathematics</option>
                             <option value="chemistry">Chemistry</option>
+                            <option value="population">Population Health</option>
+                            <option value="biochemistry">Biochemistry</option>
+                            <option value="economics">Economics</option>
+                            <option value="neuroscience">Neuroscience</option>
+                            <option value="politics">Politics</option>
+                            <option value="astrophysics">Astrophysics</option>
+                            <option value="linguistics">Linguistics</option>
+                            <option value="materials">Materials Science</option>
+                            <option value="anthropology">Anthropology</option>
+                            <option value="statistics">Statistics</option>
+                            <option value="history">History</option>
+                            <option value="law">Law</option>
+                            <option value="psychology">Psychology</option>
+                            <option value="geography">Geography</option>
+                            <option value="sociology">Sociology</option>
+                            <option value="theology">Theology</option>
+                            <option value="philosophy">Philosophy</option>
+                            <option value="music">Music</option>
+                            <option value="archaeology">Archaeology</option>
+                            <option value="classics">Classics</option>
+                            <option value="education">Education</option>
+                            <option value="business">Business</option>
                         </select>
                     </div>
                     <div class="filter-dropdown-group">
@@ -1811,6 +1882,12 @@
                             <option value="cryptography">Cryptography</option>
                         </select>
                     </div>
+                </div>
+
+                <!-- Active Filters -->
+                <div class="active-filters" id="active-filters" style="display: none;">
+                    <div class="active-filters-label">Active filters:</div>
+                    <div class="active-filters-tags" id="active-filters-tags"></div>
                 </div>
             </div>
         </div>
@@ -3374,32 +3451,238 @@
             });
         }
 
-        // Finder search functionality
-        if (finderSearchInput) {
-            finderSearchInput.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
-                isSearching = searchTerm.length > 0;
+        // Multi-faceted filter functionality
+        const filterDepartment = document.getElementById('filter-department');
+        const filterDiscipline = document.getElementById('filter-discipline');
+        const filterSupervisor = document.getElementById('filter-supervisor');
+        const filterResearchGroup = document.getElementById('filter-research-group');
+        const clearFiltersBtn = document.querySelector('.clear-filters');
+        const activeFiltersContainer = document.getElementById('active-filters');
+        const activeFiltersTags = document.getElementById('active-filters-tags');
 
-                if (isSearching) {
-                    // Filter projects based on search
-                    filteredFinderProjects = allFinderProjects.filter(project => {
+        let activeFilters = {};
+
+        // Helper function to extract department from supervisor text
+        function getDepartmentFromProject(project) {
+            const supervisorText = project.querySelector('.supervisor').textContent;
+            const parts = supervisorText.split('|');
+            if (parts.length > 1) {
+                return parts[1].trim().toLowerCase();
+            }
+            return '';
+        }
+
+        // Update active filters display
+        function updateActiveFiltersDisplay() {
+            const filterCount = Object.keys(activeFilters).length;
+
+            if (filterCount === 0) {
+                activeFiltersContainer.style.display = 'none';
+                return;
+            }
+
+            activeFiltersContainer.style.display = 'flex';
+            activeFiltersTags.innerHTML = '';
+
+            for (const [filterType, filterValue] of Object.entries(activeFilters)) {
+                const tag = document.createElement('div');
+                tag.className = 'filter-tag';
+
+                // Get the display label
+                let label = filterValue.label;
+
+                tag.innerHTML = `
+                    <span>${label}</span>
+                    <span class="filter-tag-remove">×</span>
+                `;
+
+                tag.addEventListener('click', () => {
+                    removeFilter(filterType);
+                });
+
+                activeFiltersTags.appendChild(tag);
+            }
+        }
+
+        // Add a filter
+        function addFilter(filterType, value, label) {
+            if (value) {
+                activeFilters[filterType] = { value, label };
+                updateActiveFiltersDisplay();
+                applyFilters();
+            }
+        }
+
+        // Remove a filter
+        function removeFilter(filterType) {
+            delete activeFilters[filterType];
+
+            // Reset the corresponding dropdown
+            const dropdown = document.getElementById(`filter-${filterType}`);
+            if (dropdown) {
+                dropdown.value = '';
+            }
+
+            updateActiveFiltersDisplay();
+            applyFilters();
+        }
+
+        // Clear all filters
+        function clearAllFilters() {
+            activeFilters = {};
+
+            // Reset all dropdowns
+            if (filterDepartment) filterDepartment.value = '';
+            if (filterDiscipline) filterDiscipline.value = '';
+            if (filterSupervisor) filterSupervisor.value = '';
+            if (filterResearchGroup) filterResearchGroup.value = '';
+
+            updateActiveFiltersDisplay();
+            applyFilters();
+        }
+
+        // Apply all active filters
+        function applyFilters() {
+            const searchTerm = finderSearchInput ? finderSearchInput.value.toLowerCase() : '';
+            const hasSearch = searchTerm.length > 0;
+            const hasFilters = Object.keys(activeFilters).length > 0;
+
+            if (!hasSearch && !hasFilters) {
+                // No filters or search - show all
+                filteredFinderProjects = allFinderProjects;
+            } else {
+                filteredFinderProjects = allFinderProjects.filter(project => {
+                    // First apply search if present
+                    if (hasSearch) {
                         const title = project.querySelector('h3').textContent.toLowerCase();
                         const supervisor = project.querySelector('.supervisor').textContent.toLowerCase();
                         const summary = project.querySelector('.project-summary').textContent.toLowerCase();
 
-                        return title.includes(searchTerm) ||
-                               supervisor.includes(searchTerm) ||
-                               summary.includes(searchTerm);
-                    });
-                } else {
-                    // Show all projects
-                    filteredFinderProjects = allFinderProjects;
-                }
+                        const matchesSearch = title.includes(searchTerm) ||
+                                            supervisor.includes(searchTerm) ||
+                                            summary.includes(searchTerm);
 
-                // Reset to page 1 when searching
-                currentPage = 1;
-                renderPage();
+                        if (!matchesSearch) return false;
+                    }
+
+                    // Then apply filters
+                    if (hasFilters) {
+                        // Department filter
+                        if (activeFilters.department) {
+                            const projectDept = getDepartmentFromProject(project);
+                            const filterValue = activeFilters.department.value.toLowerCase();
+
+                            // Flexible matching - check if filter value is contained in project dept
+                            if (!projectDept.includes(filterValue) && !filterValue.includes(projectDept.split(' ')[0])) {
+                                return false;
+                            }
+                        }
+
+                        // Supervisor filter
+                        if (activeFilters.supervisor) {
+                            const supervisorText = project.querySelector('.supervisor').textContent.toLowerCase();
+                            const filterValue = activeFilters.supervisor.value.toLowerCase();
+
+                            if (!supervisorText.includes(filterValue)) {
+                                return false;
+                            }
+                        }
+
+                        // Discipline filter (check in summary)
+                        if (activeFilters.discipline) {
+                            const title = project.querySelector('h3').textContent.toLowerCase();
+                            const summary = project.querySelector('.project-summary').textContent.toLowerCase();
+                            const filterValue = activeFilters.discipline.value.toLowerCase();
+
+                            if (!title.includes(filterValue) && !summary.includes(filterValue)) {
+                                return false;
+                            }
+                        }
+
+                        // Research group filter (check in summary and title)
+                        if (activeFilters['research-group']) {
+                            const title = project.querySelector('h3').textContent.toLowerCase();
+                            const summary = project.querySelector('.project-summary').textContent.toLowerCase();
+                            const filterValue = activeFilters['research-group'].value.toLowerCase();
+
+                            if (!title.includes(filterValue) && !summary.includes(filterValue)) {
+                                return false;
+                            }
+                        }
+                    }
+
+                    return true;
+                });
+            }
+
+            // Reset to page 1
+            currentPage = 1;
+            renderPage();
+        }
+
+        // Filter dropdown change handlers
+        if (filterDepartment) {
+            filterDepartment.addEventListener('change', (e) => {
+                const value = e.target.value;
+                const label = e.target.options[e.target.selectedIndex].text;
+
+                if (value) {
+                    addFilter('department', value, label);
+                } else {
+                    removeFilter('department');
+                }
             });
+        }
+
+        if (filterDiscipline) {
+            filterDiscipline.addEventListener('change', (e) => {
+                const value = e.target.value;
+                const label = e.target.options[e.target.selectedIndex].text;
+
+                if (value) {
+                    addFilter('discipline', value, label);
+                } else {
+                    removeFilter('discipline');
+                }
+            });
+        }
+
+        if (filterSupervisor) {
+            filterSupervisor.addEventListener('change', (e) => {
+                const value = e.target.value;
+                const label = e.target.options[e.target.selectedIndex].text;
+
+                if (value) {
+                    addFilter('supervisor', value, label);
+                } else {
+                    removeFilter('supervisor');
+                }
+            });
+        }
+
+        if (filterResearchGroup) {
+            filterResearchGroup.addEventListener('change', (e) => {
+                const value = e.target.value;
+                const label = e.target.options[e.target.selectedIndex].text;
+
+                if (value) {
+                    addFilter('research-group', value, label);
+                } else {
+                    removeFilter('research-group');
+                }
+            });
+        }
+
+        // Clear all filters button
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', clearAllFilters);
+        }
+
+        // Update search to work with filters
+        if (finderSearchInput) {
+            finderSearchInput.removeEventListener('input', finderSearchInput._handler);
+            finderSearchInput._handler = () => applyFilters();
+            finderSearchInput.addEventListener('input', finderSearchInput._handler);
         }
 
         // Initialize finder projects
