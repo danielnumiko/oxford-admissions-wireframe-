@@ -303,11 +303,11 @@
             margin-bottom: 12px;
         }
 
-        .project-expand-indicator {
-            font-size: 12px;
-            margin-top: 12px;
-            font-weight: 500;
-            color: #666666;
+        .project-actions {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 16px;
         }
 
         .course-link-button {
@@ -318,17 +318,25 @@
             color: #000000;
             text-decoration: none;
             font-size: 13px;
-            margin-top: 12px;
             cursor: pointer;
             border-radius: 6px;
             font-weight: 500;
             transition: all 0.2s;
+            margin: 0;
         }
 
         .course-link-button:hover {
             background-color: #000000;
             color: #FFFFFF;
             border-color: #000000;
+        }
+
+        .project-expand-indicator {
+            font-size: 13px;
+            font-weight: 500;
+            color: #666666;
+            cursor: pointer;
+            margin: 0;
         }
 
         .badge {
@@ -459,43 +467,44 @@
             opacity: 0.7;
         }
 
-        .filter-chips {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
+        .filter-dropdowns {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
         }
 
-        .filter-chip {
-            display: inline-flex;
-            align-items: center;
+        .filter-dropdown-group {
+            display: flex;
+            flex-direction: column;
             gap: 8px;
-            padding: 8px 16px;
-            background-color: #000000;
-            color: #FFFFFF;
-            border-radius: 6px;
+        }
+
+        .filter-dropdown-group label {
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .filter-select {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 14px;
+            background-color: #FFFFFF;
             cursor: pointer;
             transition: all 0.2s;
         }
 
-        .filter-chip:hover {
-            background-color: #333333;
+        .filter-select:hover {
+            border-color: #000000;
         }
 
-        .filter-chip.inactive {
-            background-color: #F0F0F0;
-            color: #666666;
-        }
-
-        .filter-chip.inactive:hover {
-            background-color: #E0E0E0;
-        }
-
-        .filter-chip-remove {
-            font-size: 16px;
-            line-height: 1;
-            cursor: pointer;
+        .filter-select:focus {
+            outline: none;
+            border-color: #000000;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
         }
 
         .results {
@@ -1338,18 +1347,51 @@
                     <span style="font-size: 14px; color: #666666;">Refine by:</span>
                     <span class="clear-filters" style="font-size: 13px; color: #000000; cursor: pointer; font-weight: 500;">Clear all filters</span>
                 </div>
-                <div class="filter-chips">
-                    <div class="filter-chip" data-filter="department" data-value="engineering">Engineering Science <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="department" data-value="computer">Computer Science <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="department" data-value="physics">Physics <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="department" data-value="mathematics">Mathematics <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="department" data-value="chemistry">Chemistry <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="area" data-value="ai">Artificial Intelligence <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="area" data-value="robotics">Robotics <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="area" data-value="quantum">Quantum Computing <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="area" data-value="materials">Materials Science <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="area" data-value="bioengineering">Bioengineering <span class="filter-chip-remove">×</span></div>
-                    <div class="filter-chip inactive" data-filter="funded" data-value="yes">Funded Only <span class="filter-chip-remove">×</span></div>
+                <div class="filter-dropdowns">
+                    <div class="filter-dropdown-group">
+                        <label>Department</label>
+                        <select class="filter-select" id="filter-department">
+                            <option value="">All Departments</option>
+                            <option value="engineering">Engineering Science</option>
+                            <option value="computer">Computer Science</option>
+                            <option value="physics">Physics</option>
+                            <option value="mathematics">Mathematics</option>
+                            <option value="chemistry">Chemistry</option>
+                        </select>
+                    </div>
+                    <div class="filter-dropdown-group">
+                        <label>Discipline</label>
+                        <select class="filter-select" id="filter-discipline">
+                            <option value="">All Disciplines</option>
+                            <option value="ai">Artificial Intelligence</option>
+                            <option value="robotics">Robotics</option>
+                            <option value="quantum">Quantum Computing</option>
+                            <option value="materials">Materials Science</option>
+                            <option value="bioengineering">Bioengineering</option>
+                        </select>
+                    </div>
+                    <div class="filter-dropdown-group">
+                        <label>Supervisor</label>
+                        <select class="filter-select" id="filter-supervisor">
+                            <option value="">All Supervisors</option>
+                            <option value="smith">Prof. Jane Smith</option>
+                            <option value="taylor">Dr. Robert Taylor</option>
+                            <option value="chen">Dr. Michael Chen</option>
+                            <option value="williams">Prof. Sarah Williams</option>
+                            <option value="brown">Dr. Emily Brown</option>
+                        </select>
+                    </div>
+                    <div class="filter-dropdown-group">
+                        <label>Research Group</label>
+                        <select class="filter-select" id="filter-research-group">
+                            <option value="">All Research Groups</option>
+                            <option value="autonomous">Autonomous Systems</option>
+                            <option value="quantum-info">Quantum Information</option>
+                            <option value="sustainable">Sustainable Materials</option>
+                            <option value="medical-ai">Medical AI</option>
+                            <option value="cryptography">Cryptography</option>
+                        </select>
+                    </div>
                 </div>
             </div>
 
@@ -1366,8 +1408,10 @@
                     <div class="summary-box">
                         This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
                     </div>
-                    <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="project-actions">
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
+                        <div class="project-expand-indicator">[View Details]</div>
+                    </div>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>The project will investigate state-of-the-art neural network architectures for autonomous vehicle navigation, with particular emphasis on safety and robustness. You will develop novel algorithms that can handle uncertain sensor data and make reliable decisions in complex urban environments. The research will combine theoretical advances in machine learning with practical implementation on physical robot platforms.</p>
@@ -1386,8 +1430,10 @@
                     <div class="summary-box">
                         Investigation of post-quantum cryptographic protocols and their implementation on near-term quantum devices. Focus on security proofs and practical deployment.
                     </div>
-                    <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Computer Science →</a>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="project-actions">
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Computer Science →</a>
+                        <div class="project-expand-indicator">[View Details]</div>
+                    </div>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>This project investigates cryptographic protocols that remain secure against attacks by quantum computers. You will develop and analyze new post-quantum algorithms, implement them on current quantum hardware, and prove their security properties. The work combines theoretical cryptography with practical implementation and testing.</p>
@@ -1405,8 +1451,10 @@
                     <div class="summary-box">
                         Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
                     </div>
-                    <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="project-actions">
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
+                        <div class="project-expand-indicator">[View Details]</div>
+                    </div>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>This project aims to develop practical quantum algorithms that can outperform classical methods for combinatorial optimization. You will work on both theoretical algorithm design and experimental implementation using quantum computing platforms. The project includes collaboration with logistics companies to test algorithms on real-world problems.</p>
@@ -1425,8 +1473,10 @@
                     <div class="summary-box">
                         Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
                     </div>
-                    <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="project-actions">
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
+                        <div class="project-expand-indicator">[View Details]</div>
+                    </div>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>The research will focus on designing and synthesizing new battery electrode materials that avoid rare earth elements. You will use a combination of computational modeling and experimental synthesis to identify promising candidates, then characterize their electrochemical performance. The goal is to develop materials that can enable affordable, sustainable energy storage for grid applications.</p>
@@ -1444,8 +1494,10 @@
                     <div class="summary-box">
                         Development of AI systems for automated diagnosis from medical images. Focus on interpretability, reliability, and clinical validation.
                     </div>
-                    <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="project-actions">
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
+                        <div class="project-expand-indicator">[View Details]</div>
+                    </div>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>This project develops deep learning systems for medical image analysis with a focus on clinical deployment. You will create neural networks that can assist radiologists in diagnosis while ensuring the systems are interpretable and reliable. The research includes extensive validation with clinical partners and addresses regulatory requirements for medical AI systems.</p>
@@ -1753,38 +1805,14 @@
             });
         }
 
-        // Filter chip functionality for Project Finder
-        const filterChips = document.querySelectorAll('.filter-chip');
+        // Filter dropdown functionality for Project Finder
+        const filterSelects = document.querySelectorAll('.filter-select');
         const clearFiltersButton = document.querySelector('.clear-filters');
-        let activeFilters = {
-            department: 'engineering', // Default active
-            area: null,
-            funded: null
-        };
 
-        // Initialize chips
-        filterChips.forEach(chip => {
-            chip.addEventListener('click', () => {
-                const filterType = chip.dataset.filter;
-                const filterValue = chip.dataset.value;
-
-                // Toggle chip state
-                if (chip.classList.contains('inactive')) {
-                    // Deactivate other chips of the same type
-                    filterChips.forEach(otherChip => {
-                        if (otherChip.dataset.filter === filterType && otherChip !== chip) {
-                            otherChip.classList.add('inactive');
-                        }
-                    });
-
-                    chip.classList.remove('inactive');
-                    activeFilters[filterType] = filterValue;
-                } else {
-                    chip.classList.add('inactive');
-                    activeFilters[filterType] = null;
-                }
-
-                console.log('Active filters:', activeFilters);
+        // Listen to filter changes
+        filterSelects.forEach(select => {
+            select.addEventListener('change', (e) => {
+                console.log(`Filter changed: ${e.target.id} = ${e.target.value}`);
                 // Filter logic can be added here to actually filter projects
             });
         });
@@ -1792,14 +1820,9 @@
         // Clear all filters
         if (clearFiltersButton) {
             clearFiltersButton.addEventListener('click', () => {
-                filterChips.forEach(chip => {
-                    chip.classList.add('inactive');
+                filterSelects.forEach(select => {
+                    select.value = '';
                 });
-                activeFilters = {
-                    department: null,
-                    area: null,
-                    funded: null
-                };
                 console.log('All filters cleared');
             });
         }
@@ -1816,9 +1839,9 @@
 
                 // Update indicator text
                 if (item.classList.contains('expanded')) {
-                    indicator.textContent = '[Click to collapse]';
+                    indicator.textContent = '[Hide Details]';
                 } else {
-                    indicator.textContent = '[Click to expand]';
+                    indicator.textContent = '[View Details]';
                 }
             });
         });
