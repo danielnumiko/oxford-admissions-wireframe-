@@ -579,7 +579,8 @@
     <!-- View Switcher -->
     <div class="view-switcher">
         <strong>VIEW:</strong>
-        <button class="view-btn active" data-view="course">Course Page (DPhil)</button>
+        <button class="view-btn active" data-view="course">Course Page (Engineering - 3 projects)</button>
+        <button class="view-btn" data-view="course-large">Course Page (Population Health - 78 projects)</button>
         <button class="view-btn" data-view="finder">Project Finder</button>
         <button class="view-btn" data-view="department">Department Page</button>
     </div>
@@ -884,6 +885,106 @@
         </div>
     </div>
 
+    <!-- VIEW 1B: COURSE PAGE WITH 78 PROJECTS -->
+    <div id="course-large-view" class="view">
+        <!-- Hero Section -->
+        <div class="course-hero-content">
+            <p style="font-size: 12px; margin-bottom: 10px;">COURSE CODE: DGS026</p>
+            <h1>DPhil in Population Health</h1>
+            <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">The DPhil in Population Health is one of the largest in the UK, and one of the largest in the world. The Nuffield Department of Population Health (NDPH) is dedicated to conducting research that addresses major population-level health challenges through high-quality epidemiological studies, randomised trials, and novel statistical methods.</p>
+        </div>
+
+        <!-- Key Information Boxes -->
+        <div class="key-info-grid">
+            <div class="key-info-box">
+                <div class="key-info-label">APPLICATION DEADLINE</div>
+                <div class="key-info-value">2 December 2025</div>
+            </div>
+            <div class="key-info-box">
+                <div class="key-info-label">EXPECTED LENGTH</div>
+                <div class="key-info-value">3-4 years</div>
+            </div>
+            <div class="key-info-box">
+                <div class="key-info-label">EXPECTED START DATE</div>
+                <div class="key-info-value">October 2026</div>
+            </div>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="hero-image">
+            [HERO IMAGE: Researchers analyzing population health data]
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+            <strong>JUMP TO:</strong>
+            <div class="quick-links-grid">
+                <a href="#about-course-large" class="quick-link">↓ About this course</a>
+                <a href="#individual-projects-large" class="quick-link">↓ Individual projects</a>
+                <a href="#funding-large" class="quick-link">↓ Funding and costs</a>
+            </div>
+        </div>
+
+        <!-- About the Course Section -->
+        <div class="about-section" id="about-course-large">
+            <h2>About the course</h2>
+            <p style="margin-top: 15px; margin-bottom: 15px;">The DPhil in Population Health provides training for students to pursue research that addresses major population-level health challenges. Students join one of the largest concentrations of population health researchers in the world, conducting high-quality epidemiological studies, randomised trials, and developing novel statistical and computational methods.</p>
+            <p style="margin-bottom: 15px;">Research areas include cardiovascular epidemiology, cancer epidemiology, health informatics, clinical trials, genetic epidemiology, statistical methods, and global health. Our students work with large-scale datasets including UK Biobank, the China Kadoorie Biobank, and numerous randomised trials.</p>
+
+            <div class="stat-callout">
+                <div class="stat-number">78</div>
+                <div class="stat-description">individual research projects available for 2026 entry</div>
+            </div>
+        </div>
+
+        <!-- Individual Projects -->
+        <div class="section-accordion" id="individual-projects-large">
+            <div class="section-accordion-header" data-section="individual-projects-large">
+                <span>Individual Projects (78 available)</span>
+                <span class="accordion-indicator">○</span>
+            </div>
+            <div class="section-accordion-content" data-section-content="individual-projects-large">
+                <p style="margin-bottom: 20px;">The following 78 individual research projects are available for this DPhil programme. Click each project to view full details.</p>
+
+                <!-- Project Search -->
+                <div class="project-search-box">
+                    <label for="project-search-large" style="font-weight: bold; margin-bottom: 8px; display: block;">Search Projects</label>
+                    <input type="text" id="project-search-large" class="project-search-input" placeholder="Search by title, supervisor, or keywords...">
+                    <div class="project-count" id="project-count-large">Showing 20 of 78 projects</div>
+                </div>
+
+                <div id="projects-container-large">
+                    <!-- Projects will be generated by JavaScript -->
+                </div>
+
+                <!-- Load More Button -->
+                <button class="load-more-button" id="load-more-projects-large">Load More Projects</button>
+            </div>
+        </div>
+
+        <!-- Funding and Costs -->
+        <div class="section-accordion" id="funding-large">
+            <div class="section-accordion-header" data-section="funding-large">
+                <span>Funding and costs</span>
+                <span class="accordion-indicator">○</span>
+            </div>
+            <div class="section-accordion-content" data-section-content="funding-large">
+                <h3>Fees</h3>
+                <p style="margin-top: 10px; margin-bottom: 20px;">Course fees vary depending on your fee status. View the current fee information on the University website.</p>
+
+                <h3>Available Funding</h3>
+                <p style="margin-top: 10px; margin-bottom: 15px;">Many projects have associated funding available. Projects with confirmed funding are marked with a "STUDENTSHIP AVAILABLE" badge. Additionally, the department offers competitive studentships and there are numerous external funding opportunities available.</p>
+            </div>
+        </div>
+
+        <!-- CTA Box -->
+        <div class="cta-box">
+            <h2>Apply to study DPhil in Population Health</h2>
+            <p style="margin-top: 10px;">Applications for entry in October 2026 close at noon on 2 December 2025. We advise early application to maximize consideration for funding opportunities.</p>
+            <button class="cta-button">Apply via Graduate Admissions</button>
+        </div>
+    </div>
+
     <!-- VIEW 2: PROJECT FINDER -->
     <div id="finder-view" class="view">
         <div class="search-container">
@@ -1101,6 +1202,122 @@
     </div>
 
     <script>
+        // Generate 78 projects for Population Health example
+        function generatePopulationHealthProjects() {
+            const projects = [
+                {title: "Machine learning approaches to predict cardiovascular disease using UK Biobank data", supervisor: "Prof. Sarah Chen", funded: true, keywords: "cardiovascular machine learning biobank"},
+                {title: "Analysing large-scale electronic health records to identify at-risk populations", supervisor: "Dr. James Wilson", funded: false, keywords: "health records epidemiology risk"},
+                {title: "Deep learning of multimorbidity trajectories in cardiovascular disease", supervisor: "Prof. Michael Zhang", funded: true, keywords: "cardiovascular AI multimorbidity"},
+                {title: "Global guidance, local ethics: international organisations in public health emergencies", supervisor: "Dr. Emma Thompson", funded: false, keywords: "ethics global health policy"},
+                {title: "Genetic determinants of cancer susceptibility in diverse populations", supervisor: "Prof. David Martinez", funded: true, keywords: "cancer genetics population"},
+                {title: "Novel statistical methods for causal inference in observational studies", supervisor: "Dr. Lisa Anderson", funded: true, keywords: "statistics causal methods"},
+                {title: "Climate change impacts on infectious disease transmission patterns", supervisor: "Prof. Robert Taylor", funded: false, keywords: "climate infectious disease"},
+                {title: "Artificial intelligence for early detection of dementia in primary care", supervisor: "Dr. Jennifer Brown", funded: true, keywords: "AI dementia primary care"},
+                {title: "Economic evaluation of population-level screening programmes", supervisor: "Prof. William Davis", funded: false, keywords: "economics screening evaluation"},
+                {title: "Social determinants of health inequalities in urban populations", supervisor: "Dr. Maria Garcia", funded: true, keywords: "inequalities urban social"},
+                {title: "Precision medicine approaches for diabetes prevention", supervisor: "Prof. Thomas Moore", funded: true, keywords: "diabetes precision prevention"},
+                {title: "Big data analytics for pandemic preparedness and response", supervisor: "Dr. Rachel White", funded: false, keywords: "pandemic big data analytics"},
+                {title: "Maternal and child health outcomes in low-resource settings", supervisor: "Prof. Ahmed Hassan", funded: true, keywords: "maternal child health global"},
+                {title: "Behavioural interventions for chronic disease management", supervisor: "Dr. Sophie Martin", funded: false, keywords: "behaviour chronic disease intervention"},
+                {title: "Genomic epidemiology of antimicrobial resistance", supervisor: "Prof. John Thompson", funded: true, keywords: "genomics resistance antimicrobial"},
+                {title: "Mental health service utilisation patterns using linked data", supervisor: "Dr. Catherine Lewis", funded: false, keywords: "mental health services data"},
+                {title: "Cardiovascular risk prediction in multi-ethnic cohorts", supervisor: "Prof. Peter Jackson", funded: true, keywords: "cardiovascular risk ethnicity"},
+                {title: "Machine learning for personalised cancer treatment selection", supervisor: "Dr. Anna Rodriguez", funded: true, keywords: "cancer machine learning personalised"},
+                {title: "Environmental exposures and respiratory disease in children", supervisor: "Prof. Daniel Lee", funded: false, keywords: "environmental respiratory children"},
+                {title: "Novel biomarkers for early cancer detection and prognosis", supervisor: "Dr. Emily Walker", funded: true, keywords: "cancer biomarkers detection"},
+                {title: "Digital health interventions for medication adherence", supervisor: "Prof. Christopher Hall", funded: false, keywords: "digital health adherence"},
+                {title: "Epigenetic mechanisms in age-related disease susceptibility", supervisor: "Dr. Victoria Allen", funded: true, keywords: "epigenetics aging disease"},
+                {title: "Cost-effectiveness of novel immunotherapy treatments", supervisor: "Prof. Matthew Young", funded: false, keywords: "immunotherapy economics cost"},
+                {title: "Social network analysis of disease transmission dynamics", supervisor: "Dr. Olivia King", funded: true, keywords: "social network disease transmission"},
+                {title: "Artificial intelligence in medical imaging for early diagnosis", supervisor: "Prof. Benjamin Wright", funded: true, keywords: "AI imaging diagnosis"},
+                {title: "Longitudinal analysis of cognitive decline in aging populations", supervisor: "Dr. Grace Scott", funded: false, keywords: "cognitive aging longitudinal"},
+                {title: "Genomic predictors of treatment response in mental health disorders", supervisor: "Prof. Alexander Green", funded: true, keywords: "genomics mental health treatment"},
+                {title: "Population-level impacts of air pollution on cardiovascular health", supervisor: "Dr. Charlotte Adams", funded: false, keywords: "pollution cardiovascular population"},
+                {title: "Machine learning for predicting hospital readmissions", supervisor: "Prof. Samuel Baker", funded: true, keywords: "machine learning hospital readmission"},
+                {title: "Dietary patterns and cancer risk in prospective cohort studies", supervisor: "Dr. Hannah Nelson", funded: false, keywords: "diet cancer cohort"},
+                {title: "Vaccine effectiveness and safety surveillance using real-world data", supervisor: "Prof. Joshua Carter", funded: true, keywords: "vaccine safety surveillance"},
+                {title: "Socioeconomic inequalities in access to healthcare services", supervisor: "Dr. Amelia Mitchell", funded: false, keywords: "inequalities healthcare access socioeconomic"},
+                {title: "Predictive modelling of epidemic outbreaks using mobility data", supervisor: "Prof. Nathan Roberts", funded: true, keywords: "epidemic modelling mobility"},
+                {title: "Gut microbiome and metabolic disease risk", supervisor: "Dr. Isabella Turner", funded: true, keywords: "microbiome metabolic disease"},
+                {title: "Telemedicine effectiveness in rural and remote populations", supervisor: "Prof. Sebastian Phillips", funded: false, keywords: "telemedicine rural effectiveness"},
+                {title: "Genetic architecture of complex traits in diverse ancestries", supervisor: "Dr. Sophia Campbell", funded: true, keywords: "genetics traits ancestry"},
+                {title: "Mental health impacts of climate change and environmental disasters", supervisor: "Prof. Lucas Parker", funded: false, keywords: "mental health climate environment"},
+                {title: "Novel statistical approaches for missing data in cohort studies", supervisor: "Dr. Mia Evans", funded: true, keywords: "statistics missing data methods"},
+                {title: "Cardiovascular disease prevention in South Asian populations", supervisor: "Prof. Oliver Edwards", funded: false, keywords: "cardiovascular prevention Asian"},
+                {title: "Artificial intelligence for drug discovery and repurposing", supervisor: "Dr. Ella Collins", funded: true, keywords: "AI drug discovery"},
+                {title: "Long-term health effects of childhood adversity", supervisor: "Prof. Henry Stewart", funded: false, keywords: "childhood adversity health outcomes"},
+                {title: "Precision public health: targeting interventions using risk prediction", supervisor: "Dr. Ava Morris", funded: true, keywords: "precision public health prediction"},
+                {title: "Cancer survival disparities across socioeconomic groups", supervisor: "Prof. Jack Rogers", funded: false, keywords: "cancer survival disparities"},
+                {title: "Wearable technology for continuous health monitoring", supervisor: "Dr. Lily Reed", funded: true, keywords: "wearable technology monitoring"},
+                {title: "Epid emiological impacts of healthcare policy changes", supervisor: "Prof. Oscar Cook", funded: false, keywords: "policy healthcare epidemiology"},
+                {title: "Metabolomics for early disease detection and prevention", supervisor: "Dr. Ruby Morgan", funded: true, keywords: "metabolomics disease detection"},
+                {title: "Behavioural economics approaches to health promotion", supervisor: "Prof. Leo Bell", funded: false, keywords: "behavioural economics health promotion"},
+                {title: "Maternal nutrition and offspring health outcomes", supervisor: "Dr. Zoe Murphy", funded: true, keywords: "maternal nutrition offspring"},
+                {title: "Automated phenotyping using electronic health records", supervisor: "Prof. Max Bailey", funded: false, keywords: "phenotyping health records automated"},
+                {title: "Global burden of neurological disorders", supervisor: "Dr. Ivy Rivera", funded: true, keywords: "neurological global burden"},
+                {title: "Machine learning for treatment effect heterogeneity", supervisor: "Prof. Adam Cooper", funded: true, keywords: "machine learning treatment heterogeneity"},
+                {title: "Environmental justice and health inequalities", supervisor: "Dr. Aria Richardson", funded: false, keywords: "environmental justice inequalities"},
+                {title: "Novel approaches to measuring health-related quality of life", supervisor: "Prof. Ethan Cox", funded: false, keywords: "quality life measurement methods"},
+                {title: "Genetic risk scores for cardiovascular disease prevention", supervisor: "Dr. Maya Howard", funded: true, keywords: "genetic risk cardiovascular"},
+                {title: "Impact of urbanisation on mental health in developing countries", supervisor: "Prof. Luke Ward", funded: false, keywords: "urbanisation mental health developing"},
+                {title: "Pharmacovigilance using social media and digital data sources", supervisor: "Dr. Nora Torres", funded: true, keywords: "pharmacovigilance social media digital"},
+                {title: "Childhood obesity prevention interventions: systematic evaluation", supervisor: "Prof. Evan Peterson", funded: false, keywords: "obesity children prevention"},
+                {title: "Artificial intelligence for personalised risk communication", supervisor: "Dr. Clara Gray", funded: true, keywords: "AI risk communication personalised"},
+                {title: "Lifecourse epidemiology of cardiometabolic disease", supervisor: "Prof. Aaron Ramirez", funded: false, keywords: "lifecourse cardiometabolic epidemiology"},
+                {title: "Health impacts of shift work and circadian disruption", supervisor: "Dr. Layla James", funded: true, keywords: "shift work circadian health"},
+                {title: "Novel trial designs for rare diseases", supervisor: "Prof. Dylan Watson", funded: false, keywords: "trial rare disease design"},
+                {title: "Polygenic risk prediction across diverse populations", supervisor: "Dr. Mila Brooks", funded: true, keywords: "polygenic risk population"},
+                {title: "Digital biomarkers for neurological disease progression", supervisor: "Prof. Caleb Kelly", funded: false, keywords: "digital biomarkers neurological"},
+                {title: "Health economics of precision medicine implementation", supervisor: "Dr. Evelyn Sanders", funded: true, keywords: "economics precision medicine"},
+                {title: "Social media surveillance for infectious disease outbreaks", supervisor: "Prof. Isaac Price", funded: false, keywords: "social media infectious disease surveillance"},
+                {title: "Epigenetic biomarkers of environmental exposures", supervisor: "Dr. Stella Bennett", funded: true, keywords: "epigenetic biomarkers environmental"},
+                {title: "Machine learning for adverse drug reaction prediction", supervisor: "Prof. Levi Wood", funded: true, keywords: "machine learning drug reaction"},
+                {title: "Global patterns of antimicrobial consumption and resistance", supervisor: "Dr. Aurora Barnes", funded: false, keywords: "antimicrobial resistance global"},
+                {title: "Health inequalities in COVID-19 outcomes and vaccination", supervisor: "Prof. Miles Ross", funded: true, keywords: "COVID inequalities vaccination"},
+                {title: "Mendelian randomisation studies of modifiable risk factors", supervisor: "Dr. Violet Henderson", funded: false, keywords: "Mendelian randomisation risk"},
+                {title: "Predictive analytics for emergency department resource allocation", supervisor: "Prof. Felix Coleman", funded: true, keywords: "predictive emergency department"},
+                {title: "Nutritional epidemiology using metabolomic profiling", supervisor: "Dr. Hazel Jenkins", funded: false, keywords: "nutrition metabolomics epidemiology"},
+                {title: "Cancer screening: balancing benefits and harms", supervisor: "Prof. Jasper Perry", funded: true, keywords: "cancer screening benefits harms"},
+                {title: "Machine learning approaches to predicting treatment adherence", supervisor: "Dr. Iris Powell", funded: false, keywords: "machine learning adherence treatment"},
+                {title: "Environmental determinants of neurodevelopmental disorders", supervisor: "Prof. Silas Long", funded: true, keywords: "environmental neurodevelopmental"},
+                {title: "Real-world effectiveness of novel cancer therapies", supervisor: "Dr. Freya Patterson", funded: true, keywords: "cancer therapy effectiveness"},
+                {title: "Artificial intelligence for mortality risk prediction", supervisor: "Prof. Hugo Hughes", funded: false, keywords: "AI mortality risk"}
+            ];
+
+            const container = document.getElementById('projects-container-large');
+            if (!container) return;
+
+            projects.forEach((project, index) => {
+                const projectDiv = document.createElement('div');
+                projectDiv.className = 'project-item';
+                projectDiv.setAttribute('data-project', `pop-health-${index + 1}`);
+
+                projectDiv.innerHTML = `
+                    <div class="project-header">
+                        <div>
+                            <h3>${project.title}</h3>
+                            <p class="supervisor">Supervisor: ${project.supervisor}</p>
+                        </div>
+                        ${project.funded ? '<div class="badge">STUDENTSHIP AVAILABLE</div>' : ''}
+                    </div>
+                    <div class="summary-box">
+                        ${project.keywords}
+                    </div>
+                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project focuses on ${project.keywords} within population health research. The successful candidate will work with large-scale datasets and cutting-edge methodologies to address important research questions in this area.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong quantitative skills, experience with statistical software (R, Python, or Stata), and genuine interest in population health research.</p>
+                    </div>
+                `;
+
+                container.appendChild(projectDiv);
+            });
+        }
+
+        // Generate projects when page loads
+        generatePopulationHealthProjects();
+
         // View Switcher
         const viewButtons = document.querySelectorAll('.view-btn');
         const views = document.querySelectorAll('.view');
@@ -1393,6 +1610,108 @@
         // Initialize finder projects
         if (finderResults) {
             setTimeout(initializeFinderProjects, 100);
+        }
+
+        // Population Health large course view search and pagination
+        const projectSearchLargeInput = document.getElementById('project-search-large');
+        const projectCountLargeDisplay = document.getElementById('project-count-large');
+        const loadMoreLargeButton = document.getElementById('load-more-projects-large');
+        const projectsLargeContainer = document.getElementById('projects-container-large');
+
+        let allLargeProjects = [];
+        let largeVisibleCount = 20;
+
+        function initializeLargeProjects() {
+            allLargeProjects = Array.from(document.querySelectorAll('#projects-container-large .project-item'));
+
+            if (allLargeProjects.length > largeVisibleCount) {
+                allLargeProjects.forEach((project, index) => {
+                    if (index >= largeVisibleCount) {
+                        project.classList.add('hidden');
+                    }
+                });
+                if (loadMoreLargeButton) {
+                    loadMoreLargeButton.style.display = 'block';
+                }
+            }
+
+            updateLargeProjectCount();
+        }
+
+        function updateLargeProjectCount() {
+            const visibleProjects = allLargeProjects.filter(p => !p.classList.contains('hidden'));
+            if (projectCountLargeDisplay) {
+                projectCountLargeDisplay.textContent = `Showing ${visibleProjects.length} of ${allLargeProjects.length} projects`;
+            }
+        }
+
+        // Large course search functionality
+        if (projectSearchLargeInput) {
+            projectSearchLargeInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                let matchCount = 0;
+
+                allLargeProjects.forEach(project => {
+                    const title = project.querySelector('h3').textContent.toLowerCase();
+                    const supervisor = project.querySelector('.supervisor').textContent.toLowerCase();
+                    const summary = project.querySelector('.summary-box').textContent.toLowerCase();
+
+                    const matches = title.includes(searchTerm) ||
+                                  supervisor.includes(searchTerm) ||
+                                  summary.includes(searchTerm);
+
+                    if (matches) {
+                        project.classList.remove('hidden');
+                        matchCount++;
+                    } else {
+                        project.classList.add('hidden');
+                    }
+                });
+
+                if (searchTerm) {
+                    projectCountLargeDisplay.textContent = `Showing ${matchCount} of ${allLargeProjects.length} projects`;
+                    if (loadMoreLargeButton) {
+                        loadMoreLargeButton.style.display = 'none';
+                    }
+                } else {
+                    allLargeProjects.forEach((project, index) => {
+                        if (index < largeVisibleCount) {
+                            project.classList.remove('hidden');
+                        } else {
+                            project.classList.add('hidden');
+                        }
+                    });
+                    if (loadMoreLargeButton) {
+                        loadMoreLargeButton.style.display = largeVisibleCount < allLargeProjects.length ? 'block' : 'none';
+                    }
+                    updateLargeProjectCount();
+                }
+            });
+        }
+
+        // Large course load more functionality
+        if (loadMoreLargeButton) {
+            loadMoreLargeButton.addEventListener('click', () => {
+                const currentlyHidden = allLargeProjects.filter(p => p.classList.contains('hidden'));
+                const toShow = currentlyHidden.slice(0, projectsPerPage);
+
+                toShow.forEach(project => {
+                    project.classList.remove('hidden');
+                });
+
+                largeVisibleCount += toShow.length;
+
+                if (currentlyHidden.length <= projectsPerPage) {
+                    loadMoreLargeButton.style.display = 'none';
+                }
+
+                updateLargeProjectCount();
+            });
+        }
+
+        // Initialize large course projects
+        if (projectsLargeContainer) {
+            setTimeout(initializeLargeProjects, 200);
         }
     </script>
 </body>
