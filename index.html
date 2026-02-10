@@ -1230,6 +1230,14 @@
             /* Header - Show icons in top right, hide text links */
             .header-top {
                 position: relative;
+                padding-right: 110px;
+            }
+
+            .site-logo {
+                max-width: calc(100% - 110px);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
             }
 
             .site-nav a:not(.mobile-icon) {
@@ -1501,7 +1509,7 @@
     <!-- Site Header -->
     <header class="site-header">
         <div class="header-top">
-            <div class="site-logo">[OXFORD UNIVERSITY LOGO]</div>
+            <div class="site-logo">LOGO</div>
             <nav class="site-nav">
                 <a href="#">Admissions</a>
                 <a href="#">News</a>
