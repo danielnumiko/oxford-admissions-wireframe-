@@ -1206,9 +1206,9 @@
 
         /* Enhanced Mobile Responsive Styles */
         @media (max-width: 768px) {
-            /* Project Card - Badge below heading */
+            /* Project Card - Badge ABOVE heading */
             .project-header {
-                flex-direction: column !important;
+                flex-direction: column-reverse !important;
                 align-items: flex-start !important;
                 gap: 12px;
             }
@@ -1216,9 +1216,23 @@
             .project-header .badge {
                 align-self: flex-start;
                 margin-left: 0;
+                order: -1;
             }
 
-            /* Header - Show icons, hide text links */
+            /* Project Actions - Stack vertically */
+            .project-actions {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 10px;
+            }
+
+            .view-details-button,
+            .course-link-button {
+                width: 100% !important;
+                text-align: center;
+            }
+
+            /* Header - Show icons as buttons, hide text links */
             .site-nav a {
                 display: none;
             }
@@ -1227,9 +1241,24 @@
                 display: inline-flex !important;
                 align-items: center;
                 justify-content: center;
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
+                min-width: 44px;
+                height: 44px;
+                padding: 10px 16px;
+                font-size: 18px;
+                background-color: #000000;
+                color: #FFFFFF;
+                border-radius: 6px;
+                margin-left: 8px;
+                transition: background-color 0.2s;
+            }
+
+            .site-nav a.mobile-icon:hover {
+                background-color: #333333;
+            }
+
+            .site-nav {
+                display: flex;
+                gap: 0;
             }
 
             .mobile-menu-overlay {
