@@ -19,6 +19,10 @@
             line-height: 1.5;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* View Switcher */
         .view-switcher {
             border: 1px solid #000000;
@@ -374,6 +378,11 @@
             text-decoration: underline;
             cursor: pointer;
             font-size: 13px;
+            color: #000000;
+        }
+
+        .quick-link:hover {
+            background-color: #F3F4F6;
         }
 
         .about-section {
@@ -566,17 +575,17 @@
         <div class="quick-links">
             <strong>JUMP TO:</strong>
             <div class="quick-links-grid">
-                <div class="quick-link">↓ About this course</div>
-                <div class="quick-link">↓ Entry requirements</div>
-                <div class="quick-link">↓ Individual projects</div>
-                <div class="quick-link">↓ Department</div>
-                <div class="quick-link">↓ Funding and costs</div>
-                <div class="quick-link">↓ How to apply</div>
+                <a href="#about-course" class="quick-link">↓ About this course</a>
+                <a href="#entry-requirements" class="quick-link">↓ Entry requirements</a>
+                <a href="#individual-projects" class="quick-link">↓ Individual projects</a>
+                <a href="#department" class="quick-link">↓ Department</a>
+                <a href="#funding" class="quick-link">↓ Funding and costs</a>
+                <a href="#how-to-apply" class="quick-link">↓ How to apply</a>
             </div>
         </div>
 
         <!-- About the Course Section -->
-        <div class="about-section">
+        <div class="about-section" id="about-course">
             <h2>About the course</h2>
             <p style="margin-top: 15px; margin-bottom: 15px;">Engineering is an intellectually complex and dynamic subject, from the global network of microchips enabling the internet, through autonomous research-based algorithms, to the science, engineering and economics of sustainable energy. The art of the engineer is to produce a coherent system. This requires appreciation of context, analysis to achieve understanding, then synthesis and technical creativity to achieve innovative, plausible and ultimately desirable outcomes.</p>
             <p style="margin-bottom: 15px;">The DPhil encompasses all areas of engineering from civil through power, transport, chemical and biomedical engineering to complex systems. It is a research degree where you will carry out an original piece of research, culminating in a thesis. Many of our students work in industrial settings and develop research-based solution to real technical problems.</p>
@@ -595,7 +604,7 @@
         </div>
 
         <!-- Entry Requirements -->
-        <div class="section-accordion">
+        <div class="section-accordion" id="entry-requirements">
             <div class="section-accordion-header" data-section="entry-requirements">
                 <span>Entry requirements (2025-26)</span>
                 <span class="accordion-indicator">○</span>
@@ -629,7 +638,7 @@
         </div>
 
         <!-- Individual Projects -->
-        <div class="section-accordion">
+        <div class="section-accordion" id="individual-projects">
             <div class="section-accordion-header" data-section="individual-projects">
                 <span>Individual Projects</span>
                 <span class="accordion-indicator">○</span>
@@ -699,7 +708,7 @@
         </div>
 
         <!-- Department -->
-        <div class="section-accordion">
+        <div class="section-accordion" id="department">
             <div class="section-accordion-header" data-section="department">
                 <span>Department</span>
                 <span class="accordion-indicator">○</span>
@@ -712,7 +721,7 @@
         </div>
 
         <!-- Funding and Costs -->
-        <div class="section-accordion">
+        <div class="section-accordion" id="funding">
             <div class="section-accordion-header" data-section="funding">
                 <span>Funding and costs</span>
                 <span class="accordion-indicator">○</span>
@@ -750,7 +759,7 @@
         </div>
 
         <!-- How to Apply -->
-        <div class="section-accordion">
+        <div class="section-accordion" id="how-to-apply">
             <div class="section-accordion-header" data-section="how-to-apply">
                 <span>How to apply</span>
                 <span class="accordion-indicator">○</span>
