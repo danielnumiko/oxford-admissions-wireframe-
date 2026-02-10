@@ -3107,23 +3107,42 @@
         // Generate projects when page loads
         generatePopulationHealthProjects();
 
-        // View Switcher
-        const viewButtons = document.querySelectorAll('.view-btn');
-        const views = document.querySelectorAll('.view');
+        // View Switcher - with error handling
+        function initViewSwitcher() {
+            const viewButtons = document.querySelectorAll('.view-btn');
+            const views = document.querySelectorAll('.view');
 
-        viewButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const targetView = button.dataset.view;
+            if (viewButtons.length === 0) {
+                console.error('No view buttons found');
+                return;
+            }
 
-                // Update button states
-                viewButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
+            if (views.length === 0) {
+                console.error('No views found');
+                return;
+            }
 
-                // Update view visibility
-                views.forEach(view => view.classList.remove('active'));
-                document.getElementById(`${targetView}-view`).classList.add('active');
+            viewButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetView = button.dataset.view;
+
+                    // Update button states
+                    viewButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    // Update view visibility
+                    views.forEach(view => view.classList.remove('active'));
+                    const targetElement = document.getElementById(`${targetView}-view`);
+                    if (targetElement) {
+                        targetElement.classList.add('active');
+                    }
+                });
             });
-        });
+        }
+
+        // Initialize immediately
+        initViewSwitcher();
 
         // Accordion functionality
         const accordionHeaders = document.querySelectorAll('.accordion-header');
