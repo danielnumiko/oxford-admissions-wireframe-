@@ -331,6 +331,26 @@
             border-color: #000000;
         }
 
+        .view-details-button {
+            display: inline-block;
+            padding: 8px 16px;
+            border: 1px solid #000000;
+            background-color: #000000;
+            color: #FFFFFF;
+            font-size: 13px;
+            cursor: pointer;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.2s;
+            margin: 0;
+            font-family: inherit;
+        }
+
+        .view-details-button:hover {
+            background-color: #333333;
+            border-color: #333333;
+        }
+
         .project-expand-indicator {
             font-size: 13px;
             font-weight: 500;
@@ -467,6 +487,12 @@
             opacity: 0.7;
         }
 
+        .filters-section {
+            margin-top: 24px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
         .filter-dropdowns {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -482,7 +508,7 @@
         .filter-dropdown-group label {
             font-size: 13px;
             font-weight: 600;
-            color: #000000;
+            color: #FFFFFF;
         }
 
         .filter-select {
@@ -595,10 +621,11 @@
             border: 1px solid #E0E0E0;
             padding: 100px 20px;
             text-align: center;
-            background-color: #FFFFFF;
+            background-color: transparent;
             margin-bottom: 24px;
             font-size: 14px;
             border-radius: 12px;
+            color: #999999;
         }
 
         .quick-links {
@@ -1338,14 +1365,12 @@
             <h1 style="margin-bottom: 15px;">Project Finder</h1>
             <input type="text" id="finder-search" class="search-input" placeholder="Search projects by keyword, supervisor, or research area...">
             <div class="project-count" id="finder-count" style="margin-top: 10px;">Showing 5 of 5 projects</div>
-        </div>
 
-        <div class="finder-layout">
             <!-- Filters -->
-            <div class="filters">
+            <div class="filters-section">
                 <div class="filters-header">
-                    <span style="font-size: 14px; color: #666666;">Refine by:</span>
-                    <span class="clear-filters" style="font-size: 13px; color: #000000; cursor: pointer; font-weight: 500;">Clear all filters</span>
+                    <span style="font-size: 14px; color: #FFFFFF;">Refine by:</span>
+                    <span class="clear-filters" style="font-size: 13px; color: #FFFFFF; cursor: pointer; font-weight: 500;">Clear all filters</span>
                 </div>
                 <div class="filter-dropdowns">
                     <div class="filter-dropdown-group">
@@ -1394,7 +1419,9 @@
                     </div>
                 </div>
             </div>
+        </div>
 
+        <div class="finder-layout">
             <!-- Results -->
             <div class="results">
                 <div class="project-item" data-project="ml-autonomous-finder">
@@ -1409,8 +1436,8 @@
                         This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
                     </div>
                     <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
                         <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                        <div class="project-expand-indicator">[View Details]</div>
                     </div>
                     <div class="description">
                         <h4>Full Description:</h4>
@@ -1431,8 +1458,8 @@
                         Investigation of post-quantum cryptographic protocols and their implementation on near-term quantum devices. Focus on security proofs and practical deployment.
                     </div>
                     <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
                         <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Computer Science →</a>
-                        <div class="project-expand-indicator">[View Details]</div>
                     </div>
                     <div class="description">
                         <h4>Full Description:</h4>
@@ -1452,8 +1479,8 @@
                         Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
                     </div>
                     <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
                         <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                        <div class="project-expand-indicator">[View Details]</div>
                     </div>
                     <div class="description">
                         <h4>Full Description:</h4>
@@ -1474,8 +1501,8 @@
                         Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
                     </div>
                     <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
                         <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                        <div class="project-expand-indicator">[View Details]</div>
                     </div>
                     <div class="description">
                         <h4>Full Description:</h4>
@@ -1495,8 +1522,8 @@
                         Development of AI systems for automated diagnosis from medical images. Focus on interpretability, reliability, and clinical validation.
                     </div>
                     <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
                         <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
-                        <div class="project-expand-indicator">[View Details]</div>
                     </div>
                     <div class="description">
                         <h4>Full Description:</h4>
@@ -1831,19 +1858,23 @@
         const projectItems = document.querySelectorAll('.project-item');
 
         projectItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const indicator = item.querySelector('.project-expand-indicator');
+            const detailsButton = item.querySelector('.view-details-button');
 
-                // Toggle expanded state
-                item.classList.toggle('expanded');
+            if (detailsButton) {
+                detailsButton.addEventListener('click', (e) => {
+                    e.stopPropagation();
 
-                // Update indicator text
-                if (item.classList.contains('expanded')) {
-                    indicator.textContent = '[Hide Details]';
-                } else {
-                    indicator.textContent = '[View Details]';
-                }
-            });
+                    // Toggle expanded state
+                    item.classList.toggle('expanded');
+
+                    // Update button text
+                    if (item.classList.contains('expanded')) {
+                        detailsButton.textContent = 'Hide Details ▲';
+                    } else {
+                        detailsButton.textContent = 'View Details ▼';
+                    }
+                });
+            }
         });
 
         // Section accordion functionality (for new course page design)
