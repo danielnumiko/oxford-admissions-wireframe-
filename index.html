@@ -3699,9 +3699,7 @@
 
         // Update search to work with filters
         if (finderSearchInput) {
-            finderSearchInput.removeEventListener('input', finderSearchInput._handler);
-            finderSearchInput._handler = () => applyFilters();
-            finderSearchInput.addEventListener('input', finderSearchInput._handler);
+            finderSearchInput.addEventListener('input', applyFilters);
         }
 
         // Initialize finder projects
