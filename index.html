@@ -3248,7 +3248,7 @@
 
         let allProjects = [];
         let visibleCount = 20; // Show 20 projects initially
-        const projectsPerPage = 20; // Load 20 more each time
+        const courseProjectsPerPage = 20; // Load 20 more each time
 
         // Initialize: get all project items and set up pagination
         function initializeProjects() {
@@ -3320,7 +3320,7 @@
         if (loadMoreButton) {
             loadMoreButton.addEventListener('click', () => {
                 const currentlyHidden = allProjects.filter(p => p.classList.contains('hidden'));
-                const toShow = currentlyHidden.slice(0, projectsPerPage);
+                const toShow = currentlyHidden.slice(0, courseProjectsPerPage);
 
                 toShow.forEach(project => {
                     project.classList.remove('hidden');
@@ -3329,7 +3329,7 @@
                 visibleCount += toShow.length;
 
                 // Hide button if all projects are now visible
-                if (currentlyHidden.length <= projectsPerPage) {
+                if (currentlyHidden.length <= courseProjectsPerPage) {
                     loadMoreButton.style.display = 'none';
                 }
 
@@ -3354,7 +3354,7 @@
         let allFinderProjects = [];
         let filteredFinderProjects = [];
         let currentPage = 1;
-        const projectsPerPage = 12;
+        const finderProjectsPerPage = 12;
         let isSearching = false;
 
         function initializeFinderProjects() {
@@ -3365,9 +3365,9 @@
 
         function renderPage() {
             const totalProjects = filteredFinderProjects.length;
-            const totalPages = Math.ceil(totalProjects / projectsPerPage);
-            const startIndex = (currentPage - 1) * projectsPerPage;
-            const endIndex = startIndex + projectsPerPage;
+            const totalPages = Math.ceil(totalProjects / finderProjectsPerPage);
+            const startIndex = (currentPage - 1) * finderProjectsPerPage;
+            const endIndex = startIndex + finderProjectsPerPage;
 
             // Hide all projects first
             allFinderProjects.forEach(project => {
@@ -3462,7 +3462,7 @@
 
         if (nextPageBtn) {
             nextPageBtn.addEventListener('click', () => {
-                const totalPages = Math.ceil(filteredFinderProjects.length / projectsPerPage);
+                const totalPages = Math.ceil(filteredFinderProjects.length / finderProjectsPerPage);
                 if (currentPage < totalPages) {
                     currentPage++;
                     renderPage();
@@ -3715,6 +3715,7 @@
 
         let allLargeProjects = [];
         let largeVisibleCount = 20;
+        const largeProjectsPerPage = 20;
 
         function initializeLargeProjects() {
             allLargeProjects = Array.from(document.querySelectorAll('#projects-container-large .project-item'));
@@ -3788,7 +3789,7 @@
         if (loadMoreLargeButton) {
             loadMoreLargeButton.addEventListener('click', () => {
                 const currentlyHidden = allLargeProjects.filter(p => p.classList.contains('hidden'));
-                const toShow = currentlyHidden.slice(0, projectsPerPage);
+                const toShow = currentlyHidden.slice(0, largeProjectsPerPage);
 
                 toShow.forEach(project => {
                     project.classList.remove('hidden');
@@ -3796,7 +3797,7 @@
 
                 largeVisibleCount += toShow.length;
 
-                if (currentlyHidden.length <= projectsPerPage) {
+                if (currentlyHidden.length <= largeProjectsPerPage) {
                     loadMoreLargeButton.style.display = 'none';
                 }
 
