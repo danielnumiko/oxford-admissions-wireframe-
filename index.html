@@ -1193,15 +1193,23 @@
             }
             /* Project Card - Badge ABOVE heading */
             .project-header {
+                display: flex !important;
                 flex-direction: column-reverse !important;
                 align-items: flex-start !important;
+                justify-content: flex-start !important;
                 gap: 12px;
             }
 
+            .project-header > div:first-child {
+                order: 2;
+                width: 100%;
+            }
+
             .project-header .badge {
+                order: 1;
                 align-self: flex-start;
                 margin-left: 0;
-                order: -1;
+                margin-bottom: 0;
             }
 
             /* Project Actions - Stack vertically */
@@ -1322,6 +1330,7 @@
 
             /* Filter Dropdowns - Stack vertically */
             .filter-dropdowns {
+                display: flex !important;
                 flex-direction: column !important;
                 gap: 15px;
             }
