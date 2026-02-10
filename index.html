@@ -1049,6 +1049,69 @@
             display: none;
         }
 
+        /* Pagination Controls */
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0 20px 0;
+            padding: 20px;
+        }
+
+        .pagination-btn {
+            padding: 10px 20px;
+            border: 1px solid #000000;
+            background-color: #FFFFFF;
+            color: #000000;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s, color 0.2s;
+            border-radius: 6px;
+        }
+
+        .pagination-btn:hover:not(:disabled) {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        .pagination-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .pagination-pages {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .pagination-page {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #E0E0E0;
+            background-color: #FFFFFF;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border-radius: 6px;
+        }
+
+        .pagination-page:hover {
+            border-color: #000000;
+        }
+
+        .pagination-page.active {
+            background-color: #000000;
+            color: #FFFFFF;
+            border-color: #000000;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .finder-layout {
@@ -1100,7 +1163,7 @@
         <div class="view-switcher-buttons">
             <button class="view-btn active" data-view="course">Course Page (Engineering - 3 projects)</button>
             <button class="view-btn" data-view="course-large">Course Page (Population Health - 78 projects)</button>
-            <button class="view-btn" data-view="finder">Project Finder</button>
+            <button class="view-btn" data-view="finder">Project Finder (48 projects)</button>
             <button class="view-btn" data-view="department">Department Page</button>
         </div>
     </div>
@@ -1989,10 +2052,737 @@
                         <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong mathematics background, knowledge of topology, programming experience, interest in data science applications.</p>
                     </div>
                 </div>
+
+                <!-- Additional Projects (continued from the 12 existing) -->
+                <div class="project-item" data-project="biochemistry-protein">
+                    <div class="project-header">
+                        <div>
+                            <h3>Structural Biology of Membrane Proteins</h3>
+                            <p class="supervisor">Prof. Rachel Zhang | Biochemistry</p>
+                            <p class="project-summary">Investigating the structure and function of membrane proteins using cryo-EM and X-ray crystallography. Focus on drug targets for neurological disorders.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Biochemistry →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project uses cutting-edge structural biology techniques to understand membrane protein function at atomic resolution.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Biochemistry or biophysics, protein purification experience preferred.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="economics-development">
+                    <div class="project-header">
+                        <div>
+                            <h3>Economic Growth and Inequality in Developing Countries</h3>
+                            <p class="supervisor">Dr. Sarah Martinez | Economics</p>
+                            <p class="project-summary">Analysis of economic policies and their impact on income distribution using large-scale household survey data from Africa and Asia.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Economics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This research examines how economic growth affects income inequality across different policy frameworks.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Economics degree, strong econometrics skills, experience with Stata or R.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="chemistry-catalysis">
+                    <div class="project-header">
+                        <div>
+                            <h3>Sustainable Catalysis for Green Chemistry</h3>
+                            <p class="supervisor">Prof. David Kumar | Chemistry</p>
+                            <p class="project-summary">Development of earth-abundant metal catalysts for sustainable chemical synthesis. Focus on C-H activation and cross-coupling reactions.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Chemistry →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Design and test new catalytic systems using computational and experimental methods.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Chemistry degree, organic synthesis experience, computational chemistry knowledge helpful.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="neuroscience-memory">
+                    <div class="project-header">
+                        <div>
+                            <h3>Neural Mechanisms of Memory Consolidation</h3>
+                            <p class="supervisor">Dr. Emma Richardson | Neuroscience</p>
+                            <p class="project-summary">Using optogenetics and calcium imaging to study how memories are formed and consolidated during sleep in rodent models.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Neuroscience →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Investigate hippocampal-cortical communication during memory consolidation using state-of-the-art imaging techniques.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Neuroscience or related field, experience with animal work, programming for data analysis.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="politics-democracy">
+                    <div class="project-header">
+                        <div>
+                            <h3>Democratic Backsliding in Central Europe</h3>
+                            <p class="supervisor">Prof. Michael Kowalski | Politics</p>
+                            <p class="project-summary">Comparative analysis of democratic erosion processes in Hungary, Poland, and Czech Republic. Focus on institutional changes and civil society responses.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Politics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project examines the mechanisms and patterns of democratic backsliding through fieldwork and institutional analysis.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Political science or related field, regional knowledge helpful, qualitative research methods.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="astrophysics-exoplanets">
+                    <div class="project-header">
+                        <div>
+                            <h3>Atmospheric Characterization of Exoplanets</h3>
+                            <p class="supervisor">Dr. James Liu | Astrophysics</p>
+                            <p class="project-summary">Using spectroscopic observations from JWST to detect biosignatures and characterize atmospheres of potentially habitable exoplanets.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Astrophysics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Analyze JWST spectroscopic data to search for signs of life on exoplanets orbiting nearby stars.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Physics or astronomy, programming skills (Python), data analysis experience.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="linguistics-syntax">
+                    <div class="project-header">
+                        <div>
+                            <h3>Syntactic Variation in Endangered Languages</h3>
+                            <p class="supervisor">Prof. Anna Novak | Linguistics</p>
+                            <p class="project-summary">Documentation and analysis of syntactic structures in endangered indigenous languages of South America. Fieldwork required.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Linguistics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Conduct fieldwork to document and analyze syntactic phenomena in understudied indigenous languages.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Linguistics degree, syntax training, willingness to conduct extended fieldwork.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="materials-2d">
+                    <div class="project-header">
+                        <div>
+                            <h3>Two-Dimensional Materials for Optoelectronics</h3>
+                            <p class="supervisor">Dr. Wei Zhang | Materials Science</p>
+                            <p class="project-summary">Synthesis and characterization of novel 2D materials beyond graphene for next-generation optoelectronic devices and quantum technologies.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Materials Science →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Explore the optical and electronic properties of transition metal dichalcogenides and other 2D materials.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Materials science, physics, or chemistry, clean room experience beneficial.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="anthropology-migration">
+                    <div class="project-header">
+                        <div>
+                            <h3>Migration and Identity in Mediterranean Europe</h3>
+                            <p class="supervisor">Prof. Maria Rossi | Anthropology</p>
+                            <p class="project-summary">Ethnographic study of migrant communities in Italy and Greece, examining identity formation, integration processes, and transnational networks.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Anthropology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Long-term ethnographic fieldwork examining how migrants negotiate multiple identities in European contexts.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Anthropology or sociology, ethnographic methods, language skills (Italian or Greek helpful).</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="statistics-causal">
+                    <div class="project-header">
+                        <div>
+                            <h3>Causal Inference Methods for Observational Studies</h3>
+                            <p class="supervisor">Dr. Thomas Yang | Statistics</p>
+                            <p class="project-summary">Development of novel statistical methods for causal inference in high-dimensional settings with applications to epidemiology and social sciences.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Statistics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Develop new theoretical frameworks and computational methods for causal inference from observational data.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong mathematics and statistics background, programming skills (R, Python).</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="history-empire">
+                    <div class="project-header">
+                        <div>
+                            <h3>Colonial Medicine and Public Health in British India</h3>
+                            <p class="supervisor">Prof. Rajesh Patel | History</p>
+                            <p class="project-summary">Historical analysis of medical practices and public health policies in colonial India, examining the intersection of science, empire, and indigenous knowledge.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in History →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Archival research examining medical institutions and practices in colonial India between 1850-1947.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> History degree, archival research experience, interest in history of medicine or colonialism.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="law-ai-regulation">
+                    <div class="project-header">
+                        <div>
+                            <h3>Regulating Artificial Intelligence: Comparative Legal Approaches</h3>
+                            <p class="supervisor">Dr. Sophie Durant | Law</p>
+                            <p class="project-summary">Comparative analysis of AI regulation frameworks across EU, US, and UK, examining liability, transparency, and accountability mechanisms.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Law →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Examine how different legal systems are adapting to the challenges posed by AI technologies.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Law degree, interest in technology law, comparative legal analysis skills.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="psychology-development">
+                    <div class="project-header">
+                        <div>
+                            <h3>Social Cognition Development in Early Childhood</h3>
+                            <p class="supervisor">Prof. Hannah Foster | Psychology</p>
+                            <p class="project-summary">Investigating theory of mind and empathy development in children aged 2-5 using eye-tracking and behavioral paradigms.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Psychology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Study how children develop the ability to understand others' mental states using experimental methods.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Psychology degree, experience with developmental research, statistics knowledge.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="geography-urbanization">
+                    <div class="project-header">
+                        <div>
+                            <h3>Urban Sustainability in African Cities</h3>
+                            <p class="supervisor">Dr. Kwame Mensah | Geography</p>
+                            <p class="project-summary">Examining urban planning challenges and sustainable development pathways in rapidly growing African cities, with focus on Accra and Nairobi.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Geography →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Mixed-methods research combining spatial analysis, fieldwork, and stakeholder interviews.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Geography or urban studies, GIS skills, willingness to conduct fieldwork in Africa.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="sociology-inequality">
+                    <div class="project-header">
+                        <div>
+                            <h3>Digital Inequality and Social Mobility</h3>
+                            <p class="supervisor">Prof. Laura Bennett | Sociology</p>
+                            <p class="project-summary">Investigating how digital access and skills affect educational and employment opportunities across socioeconomic groups in the UK.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Sociology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Quantitative and qualitative analysis of digital inequality using large-scale survey data and interviews.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Sociology or related field, mixed methods experience, quantitative analysis skills.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="theology-ethics">
+                    <div class="project-header">
+                        <div>
+                            <h3>Bioethics in Religious Contexts</h3>
+                            <p class="supervisor">Dr. Yusuf Ahmed | Theology</p>
+                            <p class="project-summary">Comparative study of Islamic, Christian, and Jewish approaches to contemporary bioethical issues including genetic engineering and end-of-life care.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Theology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Examine how different religious traditions engage with modern bioethical challenges through textual analysis.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Theology, philosophy, or religious studies, language skills in Arabic or Hebrew helpful.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="philosophy-mind">
+                    <div class="project-header">
+                        <div>
+                            <h3>Consciousness and Neural Correlates</h3>
+                            <p class="supervisor">Prof. Marcus Weber | Philosophy</p>
+                            <p class="project-summary">Philosophical investigation of consciousness theories in dialogue with neuroscience findings. Focus on the hard problem and integrated information theory.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Philosophy →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Critically analyze theories of consciousness and their relationship to empirical neuroscience research.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Philosophy degree, background in philosophy of mind, some neuroscience knowledge helpful.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="music-ethnomusicology">
+                    <div class="project-header">
+                        <div>
+                            <h3>Traditional Music and Cultural Identity in Post-Conflict Societies</h3>
+                            <p class="supervisor">Dr. Elena Popović | Music</p>
+                            <p class="project-summary">Ethnomusicological study of how traditional music practices contribute to cultural identity reconstruction in the Balkans.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Music →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Fieldwork-based research examining musical practices and their role in community rebuilding.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Music or anthropology, ethnographic methods, language skills helpful.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="archaeology-technology">
+                    <div class="project-header">
+                        <div>
+                            <h3>Ancient Technologies: Bronze Age Metallurgy</h3>
+                            <p class="supervisor">Prof. Jonathan Harris | Archaeology</p>
+                            <p class="project-summary">Scientific analysis of Bronze Age metal artifacts using isotope analysis and experimental archaeology to understand ancient production techniques.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Archaeology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Combine laboratory analysis with experimental replication to understand Bronze Age metalworking.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Archaeology, materials science, or chemistry, willingness to conduct experimental work.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="classics-papyrology">
+                    <div class="project-header">
+                        <div>
+                            <h3>Digital Papyrology and Machine Learning</h3>
+                            <p class="supervisor">Dr. Sophia Papadopoulos | Classics</p>
+                            <p class="project-summary">Applying machine learning to aid in reading and analyzing damaged ancient papyri. Development of digital tools for classical scholars.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Classics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Develop AI tools to assist in papyrus transcription and analysis while conducting traditional philological research.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Classics with ancient Greek, programming skills, interest in digital humanities.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="education-technology">
+                    <div class="project-header">
+                        <div>
+                            <h3>Educational Technology and Learning Outcomes</h3>
+                            <p class="supervisor">Prof. Alice Morrison | Education</p>
+                            <p class="project-summary">Large-scale randomized controlled trial examining the impact of adaptive learning technologies on student achievement in mathematics.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Education →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Design and implement RCT in partnership with schools to evaluate educational technology effectiveness.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Education or psychology, quantitative methods, experience with RCTs preferred.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="business-sustainability">
+                    <div class="project-header">
+                        <div>
+                            <h3>Corporate Sustainability and Financial Performance</h3>
+                            <p class="supervisor">Dr. Priya Sharma | Business</p>
+                            <p class="project-summary">Examining the relationship between ESG practices and firm performance using machine learning analysis of corporate disclosures and financial data.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Business →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Use advanced analytics to understand how sustainability practices affect corporate financial outcomes.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Business, economics, or finance, quantitative skills, programming knowledge.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="public-health-pandemic">
+                    <div class="project-header">
+                        <div>
+                            <h3>Pandemic Preparedness in Low-Resource Settings</h3>
+                            <p class="supervisor">Prof. Amara Okafor | Public Health</p>
+                            <p class="project-summary">Evaluating pandemic preparedness infrastructure and response capacity in West African countries through mixed-methods research.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Public Health →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Assess health system capacity and develop recommendations for improving pandemic preparedness.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Public health or related field, fieldwork experience, mixed methods skills.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="oncology-immunotherapy">
+                    <div class="project-header">
+                        <div>
+                            <h3>Combination Immunotherapy for Solid Tumors</h3>
+                            <p class="supervisor">Dr. Robert Chen | Oncology</p>
+                            <p class="project-summary">Preclinical development of novel immunotherapy combinations targeting the tumor microenvironment in colorectal cancer models.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Oncology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Laboratory research developing and testing new immunotherapy approaches using in vitro and in vivo models.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Biomedical sciences, experience with cell culture and animal models, immunology knowledge.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="literature-postcolonial">
+                    <div class="project-header">
+                        <div>
+                            <h3>Postcolonial Narratives in Contemporary African Literature</h3>
+                            <p class="supervisor">Prof. Chimamanda Obi | Literature</p>
+                            <p class="project-summary">Critical analysis of contemporary African fiction examining themes of identity, migration, and postcolonial experience in works by 21st century authors.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Literature →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Close reading and theoretical analysis of contemporary African novels and short fiction.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Literature or related field, postcolonial theory, strong critical writing skills.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="earth-sciences-climate">
+                    <div class="project-header">
+                        <div>
+                            <h3>Paleoclimate Reconstruction from Ocean Sediments</h3>
+                            <p class="supervisor">Dr. Isabella Ferrara | Earth Sciences</p>
+                            <p class="project-summary">Using geochemical proxies from deep-sea sediment cores to reconstruct climate conditions during the last glacial maximum.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Earth Sciences →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Laboratory analysis of sediment cores combined with climate modeling to understand past climate change.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Earth sciences, chemistry, or related field, lab experience preferred.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="plant-sciences-crop">
+                    <div class="project-header">
+                        <div>
+                            <h3>Genetic Improvement of Drought Tolerance in Wheat</h3>
+                            <p class="supervisor">Prof. Liu Wei | Plant Sciences</p>
+                            <p class="project-summary">Using CRISPR gene editing and genomic selection to develop drought-tolerant wheat varieties for climate-resilient agriculture.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Plant Sciences →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Combine molecular genetics, field trials, and bioinformatics to improve crop resilience.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Plant biology, molecular biology, or genetics, experience with plant growth.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="zoology-conservation">
+                    <div class="project-header">
+                        <div>
+                            <h3>Conservation Genomics of Endangered Primates</h3>
+                            <p class="supervisor">Dr. Makena Kimani | Zoology</p>
+                            <p class="project-summary">Using population genomics to inform conservation strategies for critically endangered primate species in East African forests.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Zoology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Combine fieldwork, genomic sequencing, and population modeling to guide primate conservation efforts.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Biology or ecology, bioinformatics skills, willingness for extended fieldwork.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="cognitive-science-language">
+                    <div class="project-header">
+                        <div>
+                            <h3>Neural Basis of Language Acquisition</h3>
+                            <p class="supervisor">Prof. Natasha Volkov | Cognitive Science</p>
+                            <p class="project-summary">Using fMRI and EEG to investigate how the brain processes and learns new languages in adults, with implications for language pedagogy.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Cognitive Science →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Design and conduct neuroimaging studies to understand the cognitive neuroscience of language learning.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Psychology, neuroscience, or linguistics, neuroimaging experience helpful, programming skills.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="international-relations">
+                    <div class="project-header">
+                        <div>
+                            <h3>Climate Change and International Security</h3>
+                            <p class="supervisor">Dr. Hassan Al-Mansour | International Relations</p>
+                            <p class="project-summary">Analyzing how climate change affects international security dynamics, with focus on resource conflicts and climate migration in the Middle East.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in International Relations →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Examine the security implications of climate change through case studies and policy analysis.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> International relations or related field, regional expertise helpful, qualitative methods.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="medical-imaging">
+                    <div class="project-header">
+                        <div>
+                            <h3>Advanced MRI Techniques for Early Disease Detection</h3>
+                            <p class="supervisor">Prof. Katherine Moore | Medical Physics</p>
+                            <p class="project-summary">Development of novel MRI sequences and analysis methods for early detection of neurodegenerative diseases using machine learning.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Medical Physics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Develop and validate new MRI methods combining physics, engineering, and machine learning.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Physics, engineering, or computer science, MRI knowledge helpful, programming skills essential.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="civil-engineering-infrastructure">
+                    <div class="project-header">
+                        <div>
+                            <h3>Resilient Infrastructure for Coastal Cities</h3>
+                            <p class="supervisor">Dr. Carlos Mendez | Civil Engineering</p>
+                            <p class="project-summary">Design and optimization of climate-resilient infrastructure for coastal cities facing sea level rise and extreme weather events.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Civil Engineering →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Combine structural engineering, hydraulic modeling, and risk assessment to design resilient urban infrastructure.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Civil engineering, structural mechanics, computational modeling experience.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="pharmacology-drug-discovery">
+                    <div class="project-header">
+                        <div>
+                            <h3>AI-Driven Drug Discovery for Antibiotic Resistance</h3>
+                            <p class="supervisor">Prof. Olivia Watson | Pharmacology</p>
+                            <p class="project-summary">Using machine learning and high-throughput screening to identify novel antibiotic compounds effective against resistant bacteria.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Pharmacology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Integrate computational predictions with experimental validation to accelerate antibiotic discovery.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Pharmacology, chemistry, or biochemistry, programming skills, drug discovery experience helpful.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="comparative-literature">
+                    <div class="project-header">
+                        <div>
+                            <h3>Translation and Cultural Exchange in Medieval Manuscripts</h3>
+                            <p class="supervisor">Dr. Pierre Dubois | Comparative Literature</p>
+                            <p class="project-summary">Examining translation practices and cultural transmission between Arabic, Latin, and vernacular European languages in medieval scientific texts.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Comparative Literature →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Manuscript research examining translation and knowledge transmission in medieval intellectual networks.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Literature or history, paleography skills, reading knowledge of Latin and preferably Arabic.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="renewable-energy">
+                    <div class="project-header">
+                        <div>
+                            <h3>Next-Generation Perovskite Solar Cells</h3>
+                            <p class="supervisor">Prof. Hiroshi Tanaka | Engineering</p>
+                            <p class="project-summary">Development of stable and efficient perovskite solar cells for commercial applications, addressing stability and scalability challenges.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Engineering Science →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Materials synthesis, device fabrication, and characterization to improve perovskite solar cell performance.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Materials science, chemistry, or physics, clean room experience beneficial.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="medieval-history">
+                    <div class="project-header">
+                        <div>
+                            <h3>Economic Networks in Medieval Mediterranean Trade</h3>
+                            <p class="supervisor">Dr. Giovanni Russo | Medieval History</p>
+                            <p class="project-summary">Network analysis of merchant communities and trade routes connecting Italian city-states with Byzantine and Islamic territories, 1200-1400.</p>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in History →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Archival research combined with network analysis methods to map medieval economic networks.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> History degree, Latin and Italian skills, experience with quantitative methods helpful.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="synthetic-biology">
+                    <div class="project-header">
+                        <div>
+                            <h3>Engineered Microbial Systems for Biomanufacturing</h3>
+                            <p class="supervisor">Dr. Jennifer Chang | Synthetic Biology</p>
+                            <p class="project-summary">Design and construction of synthetic gene circuits in bacteria for sustainable production of pharmaceuticals and specialty chemicals.</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button">View Course: DPhil in Synthetic Biology →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>Engineer microbial systems using synthetic biology tools for industrial biotechnology applications.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Molecular biology, biotechnology, or bioengineering, lab experience with bacteria.</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Load More Button for Finder -->
-            <button class="load-more-button" id="load-more-finder" style="display: none; margin: 20px;">Load More Projects</button>
+            <!-- Pagination Controls -->
+            <div class="pagination-controls" id="finder-pagination">
+                <button class="pagination-btn" id="prev-page" disabled>← Previous</button>
+                <div class="pagination-pages" id="pagination-pages"></div>
+                <button class="pagination-btn" id="next-page">Next →</button>
+            </div>
         </div>
     </div>
 
@@ -2460,52 +3250,155 @@
         // Project Finder search and pagination
         const finderSearchInput = document.getElementById('finder-search');
         const finderCountDisplay = document.getElementById('finder-count');
-        const loadMoreFinderButton = document.getElementById('load-more-finder');
         const finderResults = document.querySelector('#finder-view .results');
+        const prevPageBtn = document.getElementById('prev-page');
+        const nextPageBtn = document.getElementById('next-page');
+        const paginationPages = document.getElementById('pagination-pages');
 
         let allFinderProjects = [];
-        let finderVisibleCount = 20;
+        let filteredFinderProjects = [];
+        let currentPage = 1;
+        const projectsPerPage = 12;
+        let isSearching = false;
 
         function initializeFinderProjects() {
             allFinderProjects = Array.from(document.querySelectorAll('#finder-view .results .project-item'));
-            updateFinderCount();
+            filteredFinderProjects = allFinderProjects;
+            renderPage();
         }
 
-        function updateFinderCount() {
-            finderCountDisplay.textContent = `Showing ${allFinderProjects.length} projects`;
+        function renderPage() {
+            const totalProjects = filteredFinderProjects.length;
+            const totalPages = Math.ceil(totalProjects / projectsPerPage);
+            const startIndex = (currentPage - 1) * projectsPerPage;
+            const endIndex = startIndex + projectsPerPage;
+
+            // Hide all projects first
+            allFinderProjects.forEach(project => {
+                project.style.display = 'none';
+            });
+
+            // Show only projects for current page
+            filteredFinderProjects.slice(startIndex, endIndex).forEach(project => {
+                project.style.display = 'block';
+            });
+
+            // Update count display
+            const showingStart = totalProjects > 0 ? startIndex + 1 : 0;
+            const showingEnd = Math.min(endIndex, totalProjects);
+            finderCountDisplay.textContent = `Showing ${showingStart}-${showingEnd} of ${totalProjects} projects`;
+
+            // Update pagination controls
+            updatePaginationControls(totalPages);
+
+            // Scroll to top of results
+            if (finderResults) {
+                finderResults.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function updatePaginationControls(totalPages) {
+            // Update prev/next buttons
+            prevPageBtn.disabled = currentPage === 1;
+            nextPageBtn.disabled = currentPage === totalPages || totalPages === 0;
+
+            // Clear and rebuild page numbers
+            paginationPages.innerHTML = '';
+
+            if (totalPages <= 7) {
+                // Show all pages
+                for (let i = 1; i <= totalPages; i++) {
+                    addPageButton(i);
+                }
+            } else {
+                // Show smart pagination with ellipsis
+                addPageButton(1);
+
+                if (currentPage > 3) {
+                    addEllipsis();
+                }
+
+                const startPage = Math.max(2, currentPage - 1);
+                const endPage = Math.min(totalPages - 1, currentPage + 1);
+
+                for (let i = startPage; i <= endPage; i++) {
+                    addPageButton(i);
+                }
+
+                if (currentPage < totalPages - 2) {
+                    addEllipsis();
+                }
+
+                addPageButton(totalPages);
+            }
+        }
+
+        function addPageButton(pageNum) {
+            const pageBtn = document.createElement('div');
+            pageBtn.className = 'pagination-page';
+            if (pageNum === currentPage) {
+                pageBtn.classList.add('active');
+            }
+            pageBtn.textContent = pageNum;
+            pageBtn.addEventListener('click', () => {
+                currentPage = pageNum;
+                renderPage();
+            });
+            paginationPages.appendChild(pageBtn);
+        }
+
+        function addEllipsis() {
+            const ellipsis = document.createElement('span');
+            ellipsis.textContent = '...';
+            ellipsis.style.padding = '0 8px';
+            paginationPages.appendChild(ellipsis);
+        }
+
+        // Pagination button handlers
+        if (prevPageBtn) {
+            prevPageBtn.addEventListener('click', () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    renderPage();
+                }
+            });
+        }
+
+        if (nextPageBtn) {
+            nextPageBtn.addEventListener('click', () => {
+                const totalPages = Math.ceil(filteredFinderProjects.length / projectsPerPage);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    renderPage();
+                }
+            });
         }
 
         // Finder search functionality
         if (finderSearchInput) {
             finderSearchInput.addEventListener('input', (e) => {
                 const searchTerm = e.target.value.toLowerCase();
-                let matchCount = 0;
+                isSearching = searchTerm.length > 0;
 
-                allFinderProjects.forEach(project => {
-                    const title = project.querySelector('h3').textContent.toLowerCase();
-                    const supervisor = project.querySelector('.supervisor').textContent.toLowerCase();
-                    const summary = project.querySelector('.project-summary').textContent.toLowerCase();
+                if (isSearching) {
+                    // Filter projects based on search
+                    filteredFinderProjects = allFinderProjects.filter(project => {
+                        const title = project.querySelector('h3').textContent.toLowerCase();
+                        const supervisor = project.querySelector('.supervisor').textContent.toLowerCase();
+                        const summary = project.querySelector('.project-summary').textContent.toLowerCase();
 
-                    const matches = title.includes(searchTerm) ||
-                                  supervisor.includes(searchTerm) ||
-                                  summary.includes(searchTerm);
-
-                    if (matches) {
-                        project.classList.remove('hidden');
-                        matchCount++;
-                    } else {
-                        project.classList.add('hidden');
-                    }
-                });
-
-                if (searchTerm) {
-                    finderCountDisplay.textContent = `Showing ${matchCount} projects`;
-                } else {
-                    allFinderProjects.forEach(project => {
-                        project.classList.remove('hidden');
+                        return title.includes(searchTerm) ||
+                               supervisor.includes(searchTerm) ||
+                               summary.includes(searchTerm);
                     });
-                    updateFinderCount();
+                } else {
+                    // Show all projects
+                    filteredFinderProjects = allFinderProjects;
                 }
+
+                // Reset to page 1 when searching
+                currentPage = 1;
+                renderPage();
             });
         }
 
