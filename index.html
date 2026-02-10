@@ -1194,22 +1194,24 @@
             /* Project Card - Badge ABOVE heading */
             .project-header {
                 display: flex !important;
-                flex-direction: column-reverse !important;
+                flex-direction: column !important;
                 align-items: flex-start !important;
                 justify-content: flex-start !important;
                 gap: 12px;
             }
 
             .project-header > div:first-child {
-                order: 2;
+                order: 2 !important;
                 width: 100%;
             }
 
+            .project-header > div.badge,
             .project-header .badge {
-                order: 1;
+                order: 1 !important;
                 align-self: flex-start;
                 margin-left: 0;
-                margin-bottom: 0;
+                margin-bottom: 8px;
+                display: block;
             }
 
             /* Project Actions - Stack vertically */
