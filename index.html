@@ -362,14 +362,15 @@
         }
 
         .badge {
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: #E8F5E9;
+            color: #2E7D32;
             padding: 6px 12px;
             font-size: 11px;
             font-weight: 600;
             border-radius: 6px;
             white-space: nowrap;
             letter-spacing: 0.3px;
+            border: 1px solid #A5D6A7;
         }
 
         .summary-box {
@@ -1369,9 +1370,19 @@
             <p style="margin-top: 15px; margin-bottom: 15px;">The DPhil in Population Health provides training for students to pursue research that addresses major population-level health challenges. Students join one of the largest concentrations of population health researchers in the world, conducting high-quality epidemiological studies, randomised trials, and developing novel statistical and computational methods.</p>
             <p style="margin-bottom: 15px;">Research areas include cardiovascular epidemiology, cancer epidemiology, health informatics, clinical trials, genetic epidemiology, statistical methods, and global health. Our students work with large-scale datasets including UK Biobank, the China Kadoorie Biobank, and numerous randomised trials.</p>
 
-            <div class="stat-callout">
-                <div class="stat-number">78</div>
-                <div class="stat-description">individual research projects available for 2026 entry</div>
+            <div class="stats-grid">
+                <div class="stat-callout">
+                    <div class="stat-number">78</div>
+                    <div class="stat-description">individual research projects available for 2026 entry</div>
+                </div>
+                <div class="stat-callout">
+                    <div class="stat-number">250+</div>
+                    <div class="stat-description">researchers in the department</div>
+                </div>
+                <div class="stat-callout">
+                    <div class="stat-number">£25M</div>
+                    <div class="stat-description">annual research funding</div>
+                </div>
             </div>
         </div>
 
@@ -1426,7 +1437,7 @@
         <div class="search-container">
             <h1 style="margin-bottom: 15px;">Project Finder</h1>
             <input type="text" id="finder-search" class="search-input" placeholder="Search projects by keyword, supervisor, or research area...">
-            <div class="project-count" id="finder-count" style="margin-top: 10px;">Showing 5 of 5 projects</div>
+            <div class="project-count" id="finder-count" style="margin-top: 10px;">Showing 12 projects</div>
 
             <!-- Filters -->
             <div class="filters-section">
@@ -1591,6 +1602,157 @@
                         <h4>Full Description:</h4>
                         <p>This project develops deep learning systems for medical image analysis with a focus on clinical deployment. You will create neural networks that can assist radiologists in diagnosis while ensuring the systems are interpretable and reliable. The research includes extensive validation with clinical partners and addresses regulatory requirements for medical AI systems.</p>
                         <p style="margin-top: 10px;"><strong>Required Background:</strong> Machine learning experience, programming skills (Python, PyTorch/TensorFlow), interest in healthcare applications, willingness to work with clinical collaborators.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="cardiovascular-prediction">
+                    <div class="project-header">
+                        <div>
+                            <h3>Machine Learning for Cardiovascular Disease Prediction</h3>
+                            <p class="supervisor">Prof. Sarah Chen | Population Health</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        Using UK Biobank data to develop predictive models for cardiovascular disease risk. Integration of genetic, lifestyle, and clinical data for personalized risk assessment.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course-large]').click(); return false;">View Course: DPhil in Population Health →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project will develop advanced machine learning models to predict cardiovascular disease risk using the UK Biobank dataset. You will integrate multiple data types including genetic information, lifestyle factors, and clinical measurements to create personalized risk prediction tools.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong quantitative skills, experience with machine learning, knowledge of epidemiology, proficiency in R or Python.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="soft-robotics">
+                    <div class="project-header">
+                        <div>
+                            <h3>Soft Robotics for Minimally Invasive Surgery</h3>
+                            <p class="supervisor">Dr. James Anderson | Engineering Science</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        Design and development of soft robotic systems for surgical applications. Focus on bio-inspired designs and advanced manufacturing techniques.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Engineering Science →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project focuses on developing soft robotic systems for minimally invasive surgical procedures. You will work on bio-inspired designs, advanced materials, and control systems to create flexible surgical tools.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Mechanical engineering background, knowledge of materials science, programming skills, interest in biomedical applications.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="natural-language">
+                    <div class="project-header">
+                        <div>
+                            <h3>Natural Language Processing for Legal Text Analysis</h3>
+                            <p class="supervisor">Prof. Alexandra Mitchell | Computer Science</p>
+                        </div>
+                    </div>
+                    <div class="summary-box">
+                        Development of NLP systems for automated analysis of legal documents. Focus on information extraction, document classification, and legal reasoning.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Computer Science →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project will develop advanced NLP techniques for legal text analysis including automated contract review, precedent identification, and legal reasoning support systems.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong programming skills, knowledge of machine learning and NLP, interest in legal applications.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="antimicrobial-resistance">
+                    <div class="project-header">
+                        <div>
+                            <h3>Genomic Epidemiology of Antimicrobial Resistance</h3>
+                            <p class="supervisor">Prof. John Thompson | Population Health</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        Using genomic sequencing data to track the evolution and transmission of antimicrobial resistance. Integration with epidemiological surveillance systems.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course-large]').click(); return false;">View Course: DPhil in Population Health →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project combines genomics and epidemiology to understand the spread of antimicrobial resistance. You will analyze large-scale genomic datasets to identify resistance mechanisms and transmission patterns.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Background in microbiology or epidemiology, experience with bioinformatics, programming skills (R, Python).</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="topological-materials">
+                    <div class="project-header">
+                        <div>
+                            <h3>Topological Quantum Materials</h3>
+                            <p class="supervisor">Dr. Marcus Weber | Physics</p>
+                        </div>
+                    </div>
+                    <div class="summary-box">
+                        Theoretical and experimental investigation of topological phases of matter. Focus on novel quantum materials with potential applications in quantum computing.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Physics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project explores topological quantum materials combining theoretical modeling and experimental techniques. You will investigate novel phases of matter with potential applications in quantum technologies.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong physics and mathematics background, knowledge of condensed matter physics, programming experience.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="climate-modeling">
+                    <div class="project-header">
+                        <div>
+                            <h3>High-Resolution Climate Modeling for Extreme Weather</h3>
+                            <p class="supervisor">Prof. Helena Rodriguez | Physics</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        Development of high-resolution climate models to predict extreme weather events. Integration of machine learning techniques with traditional climate modeling approaches.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Physics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project develops advanced climate models to better predict extreme weather events. You will combine traditional physics-based modeling with modern machine learning approaches.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Physics or mathematics background, programming skills (Python, Fortran), interest in climate science.</p>
+                    </div>
+                </div>
+
+                <div class="project-item" data-project="algebraic-topology">
+                    <div class="project-header">
+                        <div>
+                            <h3>Applications of Algebraic Topology to Data Science</h3>
+                            <p class="supervisor">Dr. Thomas Wright | Mathematics</p>
+                        </div>
+                    </div>
+                    <div class="summary-box">
+                        Developing topological data analysis methods for complex datasets. Focus on persistent homology and applications to machine learning and scientific computing.
+                    </div>
+                    <div class="project-actions">
+                        <button class="view-details-button">View Details ▼</button>
+                        <a href="#" class="course-link-button" onclick="event.stopPropagation(); document.querySelector('[data-view=course]').click(); return false;">View Course: DPhil in Mathematics →</a>
+                    </div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project applies algebraic topology to data science problems. You will develop new methods for analyzing complex datasets using topological techniques.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong mathematics background, knowledge of topology, programming experience, interest in data science applications.</p>
                     </div>
                 </div>
             </div>
@@ -1825,16 +1987,14 @@
                         <div>
                             <h3>${project.title}</h3>
                             <p class="supervisor">Supervisor: ${project.supervisor}</p>
+                            <p class="project-summary">This project focuses on ${project.keywords} within population health research.</p>
                         </div>
                         ${project.funded ? '<div class="badge">STUDENTSHIP AVAILABLE</div>' : ''}
                     </div>
-                    <div class="summary-box">
-                        ${project.keywords}
-                    </div>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <button class="view-details-button course-expand-btn">View Details ▼</button>
                     <div class="description">
                         <h4>Full Description:</h4>
-                        <p>This project focuses on ${project.keywords} within population health research. The successful candidate will work with large-scale datasets and cutting-edge methodologies to address important research questions in this area.</p>
+                        <p>The successful candidate will work with large-scale datasets and cutting-edge methodologies to address important research questions in this area. This project focuses on ${project.keywords} within population health research.</p>
                         <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong quantitative skills, experience with statistical software (R, Python, or Stata), and genuine interest in population health research.</p>
                     </div>
                 `;
