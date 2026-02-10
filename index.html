@@ -139,25 +139,46 @@
 
         /* View Switcher */
         .view-switcher {
-            border: 1px solid #000000;
-            padding: 15px;
-            margin-bottom: 20px;
-            background-color: #F3F4F6;
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 5px solid #000000;
+        }
+
+        .view-switcher-label {
+            font-size: 11px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .view-switcher-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .view-switcher button {
-            background-color: #FFFFFF;
-            border: 1px solid #000000;
-            padding: 10px 20px;
-            margin-right: 10px;
+            background-color: #000000;
+            color: #FFFFFF;
+            border: 1px solid #FFFFFF;
+            padding: 8px 16px;
             cursor: pointer;
             font-family: inherit;
-            font-size: 14px;
+            font-size: 12px;
         }
 
         .view-switcher button.active {
-            background-color: #000000;
-            color: #FFFFFF;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .view-switcher button:hover {
+            background-color: #FFFFFF;
+            color: #000000;
         }
 
         /* Views */
@@ -712,15 +733,26 @@
     </style>
 </head>
 <body>
+    <!-- View Switcher (Wireframe Navigation) -->
+    <div class="view-switcher">
+        <div class="view-switcher-label">Wireframe View Selector</div>
+        <div class="view-switcher-buttons">
+            <button class="view-btn active" data-view="course">Course Page (Engineering - 3 projects)</button>
+            <button class="view-btn" data-view="course-large">Course Page (Population Health - 78 projects)</button>
+            <button class="view-btn" data-view="finder">Project Finder</button>
+            <button class="view-btn" data-view="department">Department Page</button>
+        </div>
+    </div>
+
     <!-- Site Header -->
     <header class="site-header">
         <div class="site-logo">[OXFORD UNIVERSITY LOGO]</div>
         <nav class="site-nav">
             <a href="#">Admissions</a>
-            <a href="#">About</a>
+            <a href="#">News</a>
             <a href="#">Research</a>
-            <a href="#">Study</a>
-            <a href="#">Alumni</a>
+            <a href="#">Search</a>
+            <a href="#">Menu</a>
         </nav>
     </header>
 
@@ -735,20 +767,14 @@
         <span>Course</span>
     </nav>
 
-    <!-- View Switcher -->
-    <div class="view-switcher">
-        <strong>VIEW:</strong>
-        <button class="view-btn active" data-view="course">Course Page (Engineering - 3 projects)</button>
-        <button class="view-btn" data-view="course-large">Course Page (Population Health - 78 projects)</button>
-        <button class="view-btn" data-view="finder">Project Finder</button>
-        <button class="view-btn" data-view="department">Department Page</button>
-    </div>
-
     <!-- VIEW 1: COURSE PAGE -->
     <div id="course-view" class="view active">
         <!-- Hero Section -->
         <div class="course-hero-content">
-            <p style="font-size: 12px; margin-bottom: 10px;">COURSE CODE: DGS001</p>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <span style="font-size: 11px; padding: 4px 8px; border: 1px solid #000000; background-color: #F3F4F6;">Full time - Open</span>
+                <span style="font-size: 11px; padding: 4px 8px; border: 1px solid #000000; background-color: #F3F4F6;">Graduate</span>
+            </div>
             <h1>DPhil in Engineering Science</h1>
             <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">The DPhil in Engineering Science is the largest in the UK, and one of the largest in the world. We have more than 75 full faculty permanent academics, and around 450 graduate students. The DPhil (PhD) is a research degree that allows you to pursue in-depth investigation in your chosen field under the guidance of world-class academics.</p>
         </div>
@@ -779,8 +805,8 @@
             <strong>JUMP TO:</strong>
             <div class="quick-links-grid">
                 <a href="#about-course" class="quick-link">↓ About this course</a>
+                <a href="#research-projects" class="quick-link">↓ Research projects</a>
                 <a href="#entry-requirements" class="quick-link">↓ Entry requirements</a>
-                <a href="#individual-projects" class="quick-link">↓ Individual projects</a>
                 <a href="#department" class="quick-link">↓ Department</a>
                 <a href="#funding" class="quick-link">↓ Funding and costs</a>
                 <a href="#how-to-apply" class="quick-link">↓ How to apply</a>
@@ -806,47 +832,13 @@
             <p style="margin-top: 10px; font-size: 13px;">— Current DPhil student</p>
         </div>
 
-        <!-- Entry Requirements -->
-        <div class="section-accordion" id="entry-requirements">
-            <div class="section-accordion-header" data-section="entry-requirements">
-                <span>Entry requirements (2025-26)</span>
+        <!-- Research Projects -->
+        <div class="section-accordion" id="research-projects">
+            <div class="section-accordion-header" data-section="research-projects">
+                <span>Research Projects</span>
                 <span class="accordion-indicator">○</span>
             </div>
-            <div class="section-accordion-content" data-section-content="entry-requirements">
-                <div class="requirement-item">
-                    <span>Previous and potential academic excellence</span>
-                    <span class="requirement-icon">○</span>
-                </div>
-                <div class="requirement-item">
-                    <span>References</span>
-                    <span class="requirement-icon">○</span>
-                </div>
-                <div class="requirement-item">
-                    <span>Supporting documents</span>
-                    <span class="requirement-icon">○</span>
-                </div>
-                <div class="requirement-item">
-                    <span>Performance at interview</span>
-                    <span class="requirement-icon">○</span>
-                </div>
-                <div class="requirement-item">
-                    <span>Considerations for successful applicants</span>
-                    <span class="requirement-icon">○</span>
-                </div>
-                <div class="requirement-item">
-                    <span>Other factors governing whether places can be offered</span>
-                    <span class="requirement-icon">○</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Individual Projects -->
-        <div class="section-accordion" id="individual-projects">
-            <div class="section-accordion-header" data-section="individual-projects">
-                <span>Individual Projects</span>
-                <span class="accordion-indicator">○</span>
-            </div>
-            <div class="section-accordion-content" data-section-content="individual-projects">
+            <div class="section-accordion-content" data-section-content="research-projects">
                 <p style="margin-bottom: 20px;">The following individual research projects are available for this DPhil programme. Click each project to view full details.</p>
 
                 <!-- Project Search -->
@@ -921,6 +913,40 @@
 
                 <!-- Load More Button -->
                 <button class="load-more-button" id="load-more-projects" style="display: none;">Load More Projects</button>
+            </div>
+        </div>
+
+        <!-- Entry Requirements -->
+        <div class="section-accordion" id="entry-requirements">
+            <div class="section-accordion-header" data-section="entry-requirements">
+                <span>Entry requirements (2025-26)</span>
+                <span class="accordion-indicator">○</span>
+            </div>
+            <div class="section-accordion-content" data-section-content="entry-requirements">
+                <div class="requirement-item">
+                    <span>Previous and potential academic excellence</span>
+                    <span class="requirement-icon">○</span>
+                </div>
+                <div class="requirement-item">
+                    <span>References</span>
+                    <span class="requirement-icon">○</span>
+                </div>
+                <div class="requirement-item">
+                    <span>Supporting documents</span>
+                    <span class="requirement-icon">○</span>
+                </div>
+                <div class="requirement-item">
+                    <span>Performance at interview</span>
+                    <span class="requirement-icon">○</span>
+                </div>
+                <div class="requirement-item">
+                    <span>Considerations for successful applicants</span>
+                    <span class="requirement-icon">○</span>
+                </div>
+                <div class="requirement-item">
+                    <span>Other factors governing whether places can be offered</span>
+                    <span class="requirement-icon">○</span>
+                </div>
             </div>
         </div>
 
@@ -1048,7 +1074,10 @@
     <div id="course-large-view" class="view">
         <!-- Hero Section -->
         <div class="course-hero-content">
-            <p style="font-size: 12px; margin-bottom: 10px;">COURSE CODE: DGS026</p>
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <span style="font-size: 11px; padding: 4px 8px; border: 1px solid #000000; background-color: #F3F4F6;">Full time - Open</span>
+                <span style="font-size: 11px; padding: 4px 8px; border: 1px solid #000000; background-color: #F3F4F6;">Graduate</span>
+            </div>
             <h1>DPhil in Population Health</h1>
             <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">The DPhil in Population Health is one of the largest in the UK, and one of the largest in the world. The Nuffield Department of Population Health (NDPH) is dedicated to conducting research that addresses major population-level health challenges through high-quality epidemiological studies, randomised trials, and novel statistical methods.</p>
         </div>
@@ -1079,7 +1108,7 @@
             <strong>JUMP TO:</strong>
             <div class="quick-links-grid">
                 <a href="#about-course-large" class="quick-link">↓ About this course</a>
-                <a href="#individual-projects-large" class="quick-link">↓ Individual projects</a>
+                <a href="#research-projects-large" class="quick-link">↓ Research projects</a>
                 <a href="#funding-large" class="quick-link">↓ Funding and costs</a>
             </div>
         </div>
@@ -1096,13 +1125,13 @@
             </div>
         </div>
 
-        <!-- Individual Projects -->
-        <div class="section-accordion" id="individual-projects-large">
-            <div class="section-accordion-header" data-section="individual-projects-large">
-                <span>Individual Projects (78 available)</span>
+        <!-- Research Projects -->
+        <div class="section-accordion" id="research-projects-large">
+            <div class="section-accordion-header" data-section="research-projects-large">
+                <span>Research Projects (78 available)</span>
                 <span class="accordion-indicator">○</span>
             </div>
-            <div class="section-accordion-content" data-section-content="individual-projects-large">
+            <div class="section-accordion-content" data-section-content="research-projects-large">
                 <p style="margin-bottom: 20px;">The following 78 individual research projects are available for this DPhil programme. Click each project to view full details.</p>
 
                 <!-- Project Search -->
