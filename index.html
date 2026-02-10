@@ -382,6 +382,13 @@
             line-height: 1.6;
         }
 
+        .project-summary {
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: #333333;
+        }
+
         .supervisor {
             font-size: 14px;
             margin-bottom: 10px;
@@ -615,7 +622,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-bottom: 20px;
         }
 
         .key-info-box {
@@ -839,23 +845,26 @@
 
         /* Project Finder Link */
         .project-finder-link {
-            border: 1px solid #E0E0E0;
-            padding: 24px;
-            background-color: #FFFFFF;
+            border: 2px solid #000000;
+            padding: 32px;
+            background-color: #F3F4F6;
             margin-bottom: 24px;
             border-radius: 12px;
             text-align: center;
         }
 
         .project-finder-link p {
-            font-size: 14px;
-            color: #666666;
+            font-size: 16px;
+            color: #000000;
+            font-weight: 500;
         }
 
         .project-finder-link a {
             color: #000000;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 2px;
         }
 
         .project-finder-link a:hover {
@@ -1015,22 +1024,22 @@
                 <span style="font-size: 11px; padding: 4px 8px; border: 1px solid #000000; background-color: #F3F4F6;">Graduate</span>
             </div>
             <h1>DPhil in Engineering Science</h1>
-            <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">The DPhil in Engineering Science is the largest in the UK, and one of the largest in the world. We have more than 75 full faculty permanent academics, and around 450 graduate students. The DPhil (PhD) is a research degree that allows you to pursue in-depth investigation in your chosen field under the guidance of world-class academics.</p>
-        </div>
+            <p style="margin-top: 15px; margin-bottom: 24px; font-size: 14px; line-height: 1.6;">The DPhil in Engineering Science is the largest in the UK, and one of the largest in the world. We have more than 75 full faculty permanent academics, and around 450 graduate students. The DPhil (PhD) is a research degree that allows you to pursue in-depth investigation in your chosen field under the guidance of world-class academics.</p>
 
-        <!-- Key Information Boxes -->
-        <div class="key-info-grid">
-            <div class="key-info-box">
-                <div class="key-info-label">APPLICATION DEADLINE</div>
-                <div class="key-info-value">5 January 2027</div>
-            </div>
-            <div class="key-info-box">
-                <div class="key-info-label">EXPECTED LENGTH</div>
-                <div class="key-info-value">3-4 years</div>
-            </div>
-            <div class="key-info-box">
-                <div class="key-info-label">EXPECTED START DATE</div>
-                <div class="key-info-value">October 2027</div>
+            <!-- Key Information Boxes -->
+            <div class="key-info-grid">
+                <div class="key-info-box">
+                    <div class="key-info-label">APPLICATION DEADLINE</div>
+                    <div class="key-info-value">5 January 2027</div>
+                </div>
+                <div class="key-info-box">
+                    <div class="key-info-label">EXPECTED LENGTH</div>
+                    <div class="key-info-value">3-4 years</div>
+                </div>
+                <div class="key-info-box">
+                    <div class="key-info-label">EXPECTED START DATE</div>
+                    <div class="key-info-value">October 2027</div>
+                </div>
             </div>
         </div>
 
@@ -1103,13 +1112,11 @@
                         <div>
                             <h3>Machine Learning for Autonomous Systems</h3>
                             <p class="supervisor">Supervisor: Prof. Jane Smith</p>
+                            <p class="project-summary">This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.</p>
                         </div>
                         <div class="badge">STUDENTSHIP AVAILABLE</div>
                     </div>
-                    <div class="summary-box">
-                        This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
-                    </div>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <button class="view-details-button course-expand-btn">View Details ▼</button>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>The project will investigate state-of-the-art neural network architectures for autonomous vehicle navigation, with particular emphasis on safety and robustness. You will develop novel algorithms that can handle uncertain sensor data and make reliable decisions in complex urban environments. The research will combine theoretical advances in machine learning with practical implementation on physical robot platforms.</p>
@@ -1123,12 +1130,10 @@
                         <div>
                             <h3>Quantum Computing for Optimization Problems</h3>
                             <p class="supervisor">Supervisor: Dr. Michael Chen</p>
+                            <p class="project-summary">Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.</p>
                         </div>
                     </div>
-                    <div class="summary-box">
-                        Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
-                    </div>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <button class="view-details-button course-expand-btn">View Details ▼</button>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>This project aims to develop practical quantum algorithms that can outperform classical methods for combinatorial optimization. You will work on both theoretical algorithm design and experimental implementation using quantum computing platforms. The project includes collaboration with logistics companies to test algorithms on real-world problems.</p>
@@ -1142,13 +1147,11 @@
                         <div>
                             <h3>Sustainable Materials for Energy Storage</h3>
                             <p class="supervisor">Supervisor: Prof. Sarah Williams</p>
+                            <p class="project-summary">Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.</p>
                         </div>
                         <div class="badge">STUDENTSHIP AVAILABLE</div>
                     </div>
-                    <div class="summary-box">
-                        Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
-                    </div>
-                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <button class="view-details-button course-expand-btn">View Details ▼</button>
                     <div class="description">
                         <h4>Full Description:</h4>
                         <p>The research will focus on designing and synthesizing new battery electrode materials that avoid rare earth elements. You will use a combination of computational modeling and experimental synthesis to identify promising candidates, then characterize their electrochemical performance. The goal is to develop materials that can enable affordable, sustainable energy storage for grid applications.</p>
@@ -1326,22 +1329,22 @@
                 <span style="font-size: 11px; padding: 4px 8px; border: 1px solid #000000; background-color: #F3F4F6;">Graduate</span>
             </div>
             <h1>DPhil in Population Health</h1>
-            <p style="margin-top: 15px; font-size: 14px; line-height: 1.6;">The DPhil in Population Health is one of the largest in the UK, and one of the largest in the world. The Nuffield Department of Population Health (NDPH) is dedicated to conducting research that addresses major population-level health challenges through high-quality epidemiological studies, randomised trials, and novel statistical methods.</p>
-        </div>
+            <p style="margin-top: 15px; margin-bottom: 24px; font-size: 14px; line-height: 1.6;">The DPhil in Population Health is one of the largest in the UK, and one of the largest in the world. The Nuffield Department of Population Health (NDPH) is dedicated to conducting research that addresses major population-level health challenges through high-quality epidemiological studies, randomised trials, and novel statistical methods.</p>
 
-        <!-- Key Information Boxes -->
-        <div class="key-info-grid">
-            <div class="key-info-box">
-                <div class="key-info-label">APPLICATION DEADLINE</div>
-                <div class="key-info-value">2 December 2025</div>
-            </div>
-            <div class="key-info-box">
-                <div class="key-info-label">EXPECTED LENGTH</div>
-                <div class="key-info-value">3-4 years</div>
-            </div>
-            <div class="key-info-box">
-                <div class="key-info-label">EXPECTED START DATE</div>
-                <div class="key-info-value">October 2026</div>
+            <!-- Key Information Boxes -->
+            <div class="key-info-grid">
+                <div class="key-info-box">
+                    <div class="key-info-label">APPLICATION DEADLINE</div>
+                    <div class="key-info-value">2 December 2025</div>
+                </div>
+                <div class="key-info-box">
+                    <div class="key-info-label">EXPECTED LENGTH</div>
+                    <div class="key-info-value">3-4 years</div>
+                </div>
+                <div class="key-info-box">
+                    <div class="key-info-label">EXPECTED START DATE</div>
+                    <div class="key-info-value">October 2026</div>
+                </div>
             </div>
         </div>
 
@@ -2071,22 +2074,11 @@
 
         function initializeFinderProjects() {
             allFinderProjects = Array.from(document.querySelectorAll('#finder-view .results .project-item'));
-
-            if (allFinderProjects.length > finderVisibleCount) {
-                allFinderProjects.forEach((project, index) => {
-                    if (index >= finderVisibleCount) {
-                        project.classList.add('hidden');
-                    }
-                });
-                loadMoreFinderButton.style.display = 'block';
-            }
-
             updateFinderCount();
         }
 
         function updateFinderCount() {
-            const visibleProjects = allFinderProjects.filter(p => !p.classList.contains('hidden'));
-            finderCountDisplay.textContent = `Showing ${visibleProjects.length} of ${allFinderProjects.length} projects`;
+            finderCountDisplay.textContent = `Showing ${allFinderProjects.length} projects`;
         }
 
         // Finder search functionality
@@ -2113,39 +2105,13 @@
                 });
 
                 if (searchTerm) {
-                    finderCountDisplay.textContent = `Showing ${matchCount} of ${allFinderProjects.length} projects`;
-                    loadMoreFinderButton.style.display = 'none';
+                    finderCountDisplay.textContent = `Showing ${matchCount} projects`;
                 } else {
-                    allFinderProjects.forEach((project, index) => {
-                        if (index < finderVisibleCount) {
-                            project.classList.remove('hidden');
-                        } else {
-                            project.classList.add('hidden');
-                        }
+                    allFinderProjects.forEach(project => {
+                        project.classList.remove('hidden');
                     });
-                    loadMoreFinderButton.style.display = finderVisibleCount < allFinderProjects.length ? 'block' : 'none';
                     updateFinderCount();
                 }
-            });
-        }
-
-        // Finder load more functionality
-        if (loadMoreFinderButton) {
-            loadMoreFinderButton.addEventListener('click', () => {
-                const currentlyHidden = allFinderProjects.filter(p => p.classList.contains('hidden'));
-                const toShow = currentlyHidden.slice(0, projectsPerPage);
-
-                toShow.forEach(project => {
-                    project.classList.remove('hidden');
-                });
-
-                finderVisibleCount += toShow.length;
-
-                if (currentlyHidden.length <= projectsPerPage) {
-                    loadMoreFinderButton.style.display = 'none';
-                }
-
-                updateFinderCount();
             });
         }
 
