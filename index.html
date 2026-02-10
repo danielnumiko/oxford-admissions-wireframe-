@@ -130,6 +130,11 @@
             padding: 15px;
             margin-bottom: 15px;
             background-color: #FFFFFF;
+            cursor: pointer;
+        }
+
+        .project-item:hover {
+            background-color: #F3F4F6;
         }
 
         .project-header {
@@ -137,6 +142,13 @@
             justify-content: space-between;
             align-items: start;
             margin-bottom: 10px;
+        }
+
+        .project-expand-indicator {
+            font-family: monospace;
+            font-size: 12px;
+            margin-top: 10px;
+            font-weight: bold;
         }
 
         .badge {
@@ -165,6 +177,14 @@
         .description {
             font-size: 14px;
             line-height: 1.6;
+            display: none;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid #000000;
+        }
+
+        .project-item.expanded .description {
+            display: block;
         }
 
         /* Module List */
@@ -336,7 +356,7 @@
                 </div>
                 <div class="accordion-content" data-accordion-content="projects">
                     <!-- Project 1 -->
-                    <div class="project-item">
+                    <div class="project-item" data-project="ml-autonomous">
                         <div class="project-header">
                             <div>
                                 <h3>Machine Learning for Autonomous Systems</h3>
@@ -347,6 +367,7 @@
                         <div class="summary-box">
                             This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
                         </div>
+                        <div class="project-expand-indicator">[Click to expand]</div>
                         <div class="description">
                             <h4>Full Description:</h4>
                             <p>The project will investigate state-of-the-art neural network architectures for autonomous vehicle navigation, with particular emphasis on safety and robustness. You will develop novel algorithms that can handle uncertain sensor data and make reliable decisions in complex urban environments. The research will combine theoretical advances in machine learning with practical implementation on physical robot platforms.</p>
@@ -355,7 +376,7 @@
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="project-item">
+                    <div class="project-item" data-project="quantum-optimization">
                         <div class="project-header">
                             <div>
                                 <h3>Quantum Computing for Optimization Problems</h3>
@@ -365,6 +386,7 @@
                         <div class="summary-box">
                             Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
                         </div>
+                        <div class="project-expand-indicator">[Click to expand]</div>
                         <div class="description">
                             <h4>Full Description:</h4>
                             <p>This project aims to develop practical quantum algorithms that can outperform classical methods for combinatorial optimization. You will work on both theoretical algorithm design and experimental implementation using quantum computing platforms. The project includes collaboration with logistics companies to test algorithms on real-world problems.</p>
@@ -373,7 +395,7 @@
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="project-item">
+                    <div class="project-item" data-project="sustainable-materials">
                         <div class="project-header">
                             <div>
                                 <h3>Sustainable Materials for Energy Storage</h3>
@@ -384,6 +406,7 @@
                         <div class="summary-box">
                             Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
                         </div>
+                        <div class="project-expand-indicator">[Click to expand]</div>
                         <div class="description">
                             <h4>Full Description:</h4>
                             <p>The research will focus on designing and synthesizing new battery electrode materials that avoid rare earth elements. You will use a combination of computational modeling and experimental synthesis to identify promising candidates, then characterize their electrochemical performance. The goal is to develop materials that can enable affordable, sustainable energy storage for grid applications.</p>
@@ -516,7 +539,7 @@
 
             <!-- Results -->
             <div class="results">
-                <div class="project-item">
+                <div class="project-item" data-project="ml-autonomous-finder">
                     <div class="project-header">
                         <div>
                             <h3>Machine Learning for Autonomous Systems</h3>
@@ -527,9 +550,15 @@
                     <div class="summary-box">
                         This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
                     </div>
+                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>The project will investigate state-of-the-art neural network architectures for autonomous vehicle navigation, with particular emphasis on safety and robustness. You will develop novel algorithms that can handle uncertain sensor data and make reliable decisions in complex urban environments. The research will combine theoretical advances in machine learning with practical implementation on physical robot platforms.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong programming skills (Python, C++), knowledge of machine learning fundamentals, experience with robotics or computer vision preferred.</p>
+                    </div>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" data-project="quantum-crypto">
                     <div class="project-header">
                         <div>
                             <h3>Quantum Algorithms for Cryptography</h3>
@@ -540,9 +569,15 @@
                     <div class="summary-box">
                         Investigation of post-quantum cryptographic protocols and their implementation on near-term quantum devices. Focus on security proofs and practical deployment.
                     </div>
+                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project investigates cryptographic protocols that remain secure against attacks by quantum computers. You will develop and analyze new post-quantum algorithms, implement them on current quantum hardware, and prove their security properties. The work combines theoretical cryptography with practical implementation and testing.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong mathematics background, cryptography knowledge, programming skills, familiarity with quantum computing concepts.</p>
+                    </div>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" data-project="quantum-optimization-finder">
                     <div class="project-header">
                         <div>
                             <h3>Quantum Computing for Optimization Problems</h3>
@@ -552,9 +587,15 @@
                     <div class="summary-box">
                         Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
                     </div>
+                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project aims to develop practical quantum algorithms that can outperform classical methods for combinatorial optimization. You will work on both theoretical algorithm design and experimental implementation using quantum computing platforms. The project includes collaboration with logistics companies to test algorithms on real-world problems.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong mathematical foundation, quantum mechanics knowledge, programming experience, interest in practical applications.</p>
+                    </div>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" data-project="sustainable-materials-finder">
                     <div class="project-header">
                         <div>
                             <h3>Sustainable Materials for Energy Storage</h3>
@@ -565,9 +606,15 @@
                     <div class="summary-box">
                         Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
                     </div>
+                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>The research will focus on designing and synthesizing new battery electrode materials that avoid rare earth elements. You will use a combination of computational modeling and experimental synthesis to identify promising candidates, then characterize their electrochemical performance. The goal is to develop materials that can enable affordable, sustainable energy storage for grid applications.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Chemistry or materials science background, laboratory experience, knowledge of electrochemistry preferred.</p>
+                    </div>
                 </div>
 
-                <div class="project-item">
+                <div class="project-item" data-project="medical-imaging">
                     <div class="project-header">
                         <div>
                             <h3>Neural Networks for Medical Imaging</h3>
@@ -576,6 +623,12 @@
                     </div>
                     <div class="summary-box">
                         Development of AI systems for automated diagnosis from medical images. Focus on interpretability, reliability, and clinical validation.
+                    </div>
+                    <div class="project-expand-indicator">[Click to expand]</div>
+                    <div class="description">
+                        <h4>Full Description:</h4>
+                        <p>This project develops deep learning systems for medical image analysis with a focus on clinical deployment. You will create neural networks that can assist radiologists in diagnosis while ensuring the systems are interpretable and reliable. The research includes extensive validation with clinical partners and addresses regulatory requirements for medical AI systems.</p>
+                        <p style="margin-top: 10px;"><strong>Required Background:</strong> Machine learning experience, programming skills (Python, PyTorch/TensorFlow), interest in healthcare applications, willingness to work with clinical collaborators.</p>
                     </div>
                 </div>
             </div>
@@ -709,6 +762,25 @@
                 // Add filter logic here if needed
             });
         }
+
+        // Project item expand/collapse functionality
+        const projectItems = document.querySelectorAll('.project-item');
+
+        projectItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const indicator = item.querySelector('.project-expand-indicator');
+
+                // Toggle expanded state
+                item.classList.toggle('expanded');
+
+                // Update indicator text
+                if (item.classList.contains('expanded')) {
+                    indicator.textContent = '[Click to collapse]';
+                } else {
+                    indicator.textContent = '[Click to expand]';
+                }
+            });
+        });
     </script>
 </body>
 </html>
