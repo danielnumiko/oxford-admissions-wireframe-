@@ -26,14 +26,18 @@
         /* Header */
         .site-header {
             border: 1px solid #E0E0E0;
-            padding: 20px 32px;
+            padding: 0;
             margin-bottom: 16px;
             background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .header-top {
+            padding: 20px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-radius: 12px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
         }
 
         .site-logo {
@@ -61,12 +65,10 @@
 
         /* Breadcrumb */
         .breadcrumb {
-            border: 1px solid #E0E0E0;
-            padding: 12px 24px;
-            margin-bottom: 24px;
+            padding: 12px 32px;
             background-color: #FFFFFF;
             font-size: 13px;
-            border-radius: 8px;
+            border-top: 1px solid #E0E0E0;
         }
 
         .breadcrumb a {
@@ -266,7 +268,7 @@
 
         .accordion-content {
             display: none;
-            padding: 20px;
+            padding: 32px;
             background-color: #FFFFFF;
         }
 
@@ -282,7 +284,7 @@
         /* Project Item */
         .project-item {
             border: 1px solid #E0E0E0;
-            padding: 20px;
+            padding: 24px;
             margin-bottom: 16px;
             background-color: #FFFFFF;
             cursor: pointer;
@@ -540,14 +542,27 @@
         }
 
         /* Department Page */
-        .course-list {
-            border: 1px solid #000000;
+        .department-header {
+            border: 1px solid #E0E0E0;
+            padding: 32px;
             background-color: #FFFFFF;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+
+        .course-list {
+            border: 1px solid #E0E0E0;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .course-item {
-            border-bottom: 1px solid #000000;
-            padding: 15px;
+            border-bottom: 1px solid #E0E0E0;
+            padding: 32px;
         }
 
         .course-item:last-child {
@@ -555,24 +570,31 @@
         }
 
         .course-link {
-            font-weight: bold;
+            font-weight: 600;
             color: #000000;
             text-decoration: underline;
             cursor: pointer;
+            font-size: 18px;
+        }
+
+        .course-link:hover {
+            opacity: 0.7;
         }
 
         .featured-studentships {
-            border: 1px solid #000000;
-            padding: 20px;
-            background-color: #F3F4F6;
-            margin-top: 20px;
+            border: 1px solid #E0E0E0;
+            padding: 32px;
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
         .studentship-item {
-            border: 1px solid #000000;
-            padding: 12px;
-            margin-bottom: 10px;
+            border: 1px solid #E0E0E0;
+            padding: 24px;
+            margin-bottom: 16px;
             background-color: #FFFFFF;
+            border-radius: 8px;
         }
 
         .studentship-item:last-child {
@@ -663,11 +685,17 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0;
+        }
+
         .stat-callout {
             border: 1px solid #E0E0E0;
             padding: 32px;
             text-align: center;
-            margin: 24px 0;
             background-color: #FFFFFF;
             border-radius: 12px;
         }
@@ -712,7 +740,7 @@
 
         .section-accordion-content {
             display: none;
-            padding: 24px;
+            padding: 32px;
             border-top: 1px solid #E8E8E8;
         }
 
@@ -807,6 +835,31 @@
 
         .related-card-content {
             padding: 20px;
+        }
+
+        /* Project Finder Link */
+        .project-finder-link {
+            border: 1px solid #E0E0E0;
+            padding: 24px;
+            background-color: #FFFFFF;
+            margin-bottom: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .project-finder-link p {
+            font-size: 14px;
+            color: #666666;
+        }
+
+        .project-finder-link a {
+            color: #000000;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        .project-finder-link a:hover {
+            opacity: 0.7;
         }
 
         /* Project Search and Pagination */
@@ -932,26 +985,26 @@
 
     <!-- Site Header -->
     <header class="site-header">
-        <div class="site-logo">[OXFORD UNIVERSITY LOGO]</div>
-        <nav class="site-nav">
+        <div class="header-top">
+            <div class="site-logo">[OXFORD UNIVERSITY LOGO]</div>
+            <nav class="site-nav">
+                <a href="#">Admissions</a>
+                <a href="#">News</a>
+                <a href="#">Research</a>
+                <a href="#">Search</a>
+                <a href="#">Menu</a>
+            </nav>
+        </div>
+        <nav class="breadcrumb">
+            <a href="#">Home</a>
+            <span>›</span>
             <a href="#">Admissions</a>
-            <a href="#">News</a>
-            <a href="#">Research</a>
-            <a href="#">Search</a>
-            <a href="#">Menu</a>
+            <span>›</span>
+            <a href="#">Graduate</a>
+            <span>›</span>
+            <span>Course</span>
         </nav>
     </header>
-
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="#">Home</a>
-        <span>›</span>
-        <a href="#">Admissions</a>
-        <span>›</span>
-        <a href="#">Graduate</a>
-        <span>›</span>
-        <span>Course</span>
-    </nav>
 
     <!-- VIEW 1: COURSE PAGE -->
     <div id="course-view" class="view active">
@@ -1005,9 +1058,19 @@
             <p style="margin-top: 15px; margin-bottom: 15px;">Engineering is an intellectually complex and dynamic subject, from the global network of microchips enabling the internet, through autonomous research-based algorithms, to the science, engineering and economics of sustainable energy. The art of the engineer is to produce a coherent system. This requires appreciation of context, analysis to achieve understanding, then synthesis and technical creativity to achieve innovative, plausible and ultimately desirable outcomes.</p>
             <p style="margin-bottom: 15px;">The DPhil encompasses all areas of engineering from civil through power, transport, chemical and biomedical engineering to complex systems. It is a research degree where you will carry out an original piece of research, culminating in a thesis. Many of our students work in industrial settings and develop research-based solution to real technical problems.</p>
 
-            <div class="stat-callout">
-                <div class="stat-number">30%</div>
-                <div class="stat-description">of our graduates go on to further academic study</div>
+            <div class="stats-grid">
+                <div class="stat-callout">
+                    <div class="stat-number">30%</div>
+                    <div class="stat-description">of our graduates go on to further academic study</div>
+                </div>
+                <div class="stat-callout">
+                    <div class="stat-number">4 years</div>
+                    <div class="stat-description">typical completion time for full-time study</div>
+                </div>
+                <div class="stat-callout">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-description">of students secure funding for their studies</div>
+                </div>
             </div>
 
             <div style="border: 1px solid #000000; padding: 60px 20px; text-align: center; background-color: #F3F4F6; margin-top: 20px;">
@@ -1027,11 +1090,9 @@
             <div class="section-accordion-content" data-section-content="research-projects">
                 <p style="margin-bottom: 20px;">The following individual research projects are available for this DPhil programme. Click each project to view full details.</p>
 
-                <!-- Project Search -->
-                <div class="project-search-box">
-                    <label for="project-search" style="font-weight: bold; margin-bottom: 8px; display: block;">Search Projects</label>
-                    <input type="text" id="project-search" class="project-search-input" placeholder="Search by title, supervisor, or keywords...">
-                    <div class="project-count" id="project-count">Showing 3 of 3 projects</div>
+                <!-- Project Finder Link -->
+                <div class="project-finder-link">
+                    <p>Can't find the right project? <a href="#" onclick="document.querySelector('[data-view=finder]').click(); return false;">Use the Project Finder</a> to search across all departments and disciplines.</p>
                 </div>
 
                 <div id="projects-container">
@@ -1320,11 +1381,9 @@
             <div class="section-accordion-content" data-section-content="research-projects-large">
                 <p style="margin-bottom: 20px;">The following 78 individual research projects are available for this DPhil programme. Click each project to view full details.</p>
 
-                <!-- Project Search -->
-                <div class="project-search-box">
-                    <label for="project-search-large" style="font-weight: bold; margin-bottom: 8px; display: block;">Search Projects</label>
-                    <input type="text" id="project-search-large" class="project-search-input" placeholder="Search by title, supervisor, or keywords...">
-                    <div class="project-count" id="project-count-large">Showing 20 of 78 projects</div>
+                <!-- Project Finder Link -->
+                <div class="project-finder-link">
+                    <p>Can't find the right project? <a href="#" onclick="document.querySelector('[data-view=finder]').click(); return false;">Use the Project Finder</a> to search across all departments and disciplines.</p>
                 </div>
 
                 <div id="projects-container-large">
@@ -1540,13 +1599,14 @@
 
     <!-- VIEW 3: DEPARTMENT PAGE -->
     <div id="department-view" class="view">
-        <div class="container">
-            <div class="header">
-                <h1>Ruskin School of Art</h1>
-                <p style="margin-top: 10px;">The Ruskin School of Art is one of the leading centres for contemporary fine art practice and research in Europe. Our graduate programmes combine studio practice with critical and theoretical study.</p>
-            </div>
+        <div class="department-header">
+            <h1>Ruskin School of Art</h1>
+            <p style="margin-top: 10px;">The Ruskin School of Art is one of the leading centres for contemporary fine art practice and research in Europe. Our graduate programmes combine studio practice with critical and theoretical study.</p>
+        </div>
 
-            <h2 style="margin-bottom: 15px;">Graduate Courses</h2>
+        <div style="margin-bottom: 16px;">
+            <h2>Graduate Courses</h2>
+        </div>
             <div class="course-list">
                 <div class="course-item">
                     <h3 class="course-link">MFA in Fine Art</h3>
@@ -1605,7 +1665,6 @@
                     <p style="font-size: 13px;">Development of performance-based practice engaging with community participation and social engagement, exploring the boundaries between art and activism.</p>
                 </div>
             </div>
-        </div>
     </div>
 
     <!-- Site Footer -->
