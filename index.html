@@ -17,10 +17,58 @@
             color: #000000;
             padding: 20px;
             line-height: 1.6;
+            max-width: 1280px;
+            margin: 0 auto;
         }
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Type Scale */
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #000000;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.3;
+            color: #000000;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #000000;
+        }
+
+        h4 {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            color: #000000;
+        }
+
+        p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* Consistent Link Styling */
+        a {
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        a:hover {
+            opacity: 0.7;
         }
 
         /* Header */
@@ -277,8 +325,9 @@
         }
 
         .accordion-indicator {
-            font-family: monospace;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 400;
+            transition: transform 0.2s;
         }
 
         /* Project Item */
@@ -306,9 +355,9 @@
         }
 
         .project-header h3 {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            line-height: 1.3;
+            line-height: 1.4;
             margin-bottom: 8px;
             color: #000000;
         }
@@ -675,6 +724,42 @@
             font-size: 14px;
             border-radius: 12px;
             color: #999999;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image::before {
+            content: '🖼';
+            font-size: 48px;
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.4;
+        }
+
+        .inline-image-placeholder {
+            border: 1px solid #E0E0E0;
+            padding: 60px 20px;
+            text-align: center;
+            background-color: transparent;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999999;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        .inline-image-placeholder::before {
+            content: '📷';
+            font-size: 36px;
+            display: block;
+            margin-bottom: 10px;
+            opacity: 0.4;
         }
 
         .quick-links {
@@ -858,6 +943,19 @@
             text-align: center;
             background-color: #FFFFFF;
             font-size: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #CCCCCC;
+        }
+
+        .related-card-image::before {
+            content: '📷';
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+            opacity: 0.5;
         }
 
         .related-card-content {
@@ -1103,7 +1201,7 @@
                 </div>
             </div>
 
-            <div style="border: 1px solid #000000; padding: 60px 20px; text-align: center; background-color: #F3F4F6; margin-top: 20px;">
+            <div class="inline-image-placeholder">
                 [IMAGE: Students working in a study setting]
             </div>
 
@@ -1115,7 +1213,7 @@
         <div class="section-accordion" id="research-projects">
             <div class="section-accordion-header" data-section="research-projects">
                 <span>Research Projects</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="research-projects">
                 <p style="margin-bottom: 20px;">The following individual research projects are available for this DPhil programme. Click each project to view full details.</p>
@@ -1191,7 +1289,7 @@
         <div class="section-accordion" id="entry-requirements">
             <div class="section-accordion-header" data-section="entry-requirements">
                 <span>Entry requirements (2025-26)</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="entry-requirements">
                 <div class="requirement-item">
@@ -1225,7 +1323,7 @@
         <div class="section-accordion" id="department">
             <div class="section-accordion-header" data-section="department">
                 <span>Department</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="department">
                 <h3>Nuffield Department of Engineering Science</h3>
@@ -1238,7 +1336,7 @@
         <div class="section-accordion" id="funding">
             <div class="section-accordion-header" data-section="funding">
                 <span>Funding and costs</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="funding">
                 <h3>Fees</h3>
@@ -1258,7 +1356,7 @@
         <div class="section-accordion">
             <div class="section-accordion-header" data-section="college">
                 <span>College preference</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="college">
                 <div class="requirement-item">
@@ -1276,7 +1374,7 @@
         <div class="section-accordion" id="how-to-apply">
             <div class="section-accordion-header" data-section="how-to-apply">
                 <span>How to apply</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="how-to-apply">
                 <div class="requirement-item">
@@ -1410,7 +1508,7 @@
         <div class="section-accordion" id="research-projects-large">
             <div class="section-accordion-header" data-section="research-projects-large">
                 <span>Research Projects (78 available)</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="research-projects-large">
                 <p style="margin-bottom: 20px;">The following 78 individual research projects are available for this DPhil programme. Click each project to view full details.</p>
@@ -1433,7 +1531,7 @@
         <div class="section-accordion" id="funding-large">
             <div class="section-accordion-header" data-section="funding-large">
                 <span>Funding and costs</span>
-                <span class="accordion-indicator">○</span>
+                <span class="accordion-indicator">▼</span>
             </div>
             <div class="section-accordion-content" data-section-content="funding-large">
                 <h3>Fees</h3>
@@ -2133,9 +2231,9 @@
 
                 // Toggle indicator
                 if (content.classList.contains('active')) {
-                    indicator.textContent = '●';
+                    indicator.textContent = '▲';
                 } else {
-                    indicator.textContent = '○';
+                    indicator.textContent = '▼';
                 }
             });
         });
