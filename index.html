@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxford Graduate Admissions - Wireframe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: #FFFFFF;
+            color: #000000;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        /* View Switcher */
+        .view-switcher {
+            border: 1px solid #000000;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #F3F4F6;
+        }
+
+        .view-switcher button {
+            background-color: #FFFFFF;
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .view-switcher button.active {
+            background-color: #000000;
+            color: #FFFFFF;
+        }
+
+        /* Views */
+        .view {
+            display: none;
+        }
+
+        .view.active {
+            display: block;
+        }
+
+        /* Common Elements */
+        .container {
+            border: 1px solid #000000;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #FFFFFF;
+        }
+
+        .header {
+            border-bottom: 1px solid #000000;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        h4 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        /* Accordion */
+        .accordion {
+            border: 1px solid #000000;
+            margin-bottom: 15px;
+        }
+
+        .accordion-header {
+            background-color: #F3F4F6;
+            border-bottom: 1px solid #000000;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background-color: #FFFFFF;
+        }
+
+        .accordion-content {
+            display: none;
+            padding: 15px;
+            background-color: #FFFFFF;
+        }
+
+        .accordion-content.active {
+            display: block;
+        }
+
+        .accordion-indicator {
+            font-family: monospace;
+        }
+
+        /* Project Item */
+        .project-item {
+            border: 1px solid #000000;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #FFFFFF;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            background-color: #000000;
+            color: #FFFFFF;
+            padding: 4px 8px;
+            font-size: 11px;
+            border: 1px solid #000000;
+            white-space: nowrap;
+        }
+
+        .summary-box {
+            border: 1px solid #000000;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #F3F4F6;
+            font-size: 13px;
+        }
+
+        .supervisor {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: #000000;
+        }
+
+        .description {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Module List */
+        .module-list {
+            border: 1px solid #000000;
+            margin-top: 10px;
+        }
+
+        .module-item {
+            border-bottom: 1px solid #000000;
+            padding: 10px;
+            background-color: #FFFFFF;
+        }
+
+        .module-item:last-child {
+            border-bottom: none;
+        }
+
+        .module-code {
+            font-family: monospace;
+            font-size: 12px;
+            color: #000000;
+        }
+
+        /* Project Finder */
+        .search-container {
+            border: 1px solid #000000;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #F3F4F6;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000000;
+            font-family: inherit;
+            font-size: 14px;
+            background-color: #FFFFFF;
+        }
+
+        .finder-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 20px;
+        }
+
+        .filters {
+            border: 1px solid #000000;
+            padding: 15px;
+            background-color: #FFFFFF;
+            height: fit-content;
+        }
+
+        .filter-group {
+            margin-bottom: 20px;
+        }
+
+        .filter-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .filter-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #000000;
+            font-family: inherit;
+            background-color: #FFFFFF;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            border: 1px solid #000000;
+        }
+
+        .results {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Department Page */
+        .course-list {
+            border: 1px solid #000000;
+            background-color: #FFFFFF;
+        }
+
+        .course-item {
+            border-bottom: 1px solid #000000;
+            padding: 15px;
+        }
+
+        .course-item:last-child {
+            border-bottom: none;
+        }
+
+        .course-link {
+            font-weight: bold;
+            color: #000000;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .featured-studentships {
+            border: 1px solid #000000;
+            padding: 20px;
+            background-color: #F3F4F6;
+            margin-top: 20px;
+        }
+
+        .studentship-item {
+            border: 1px solid #000000;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #FFFFFF;
+        }
+
+        .studentship-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .finder-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .view-switcher button {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- View Switcher -->
+    <div class="view-switcher">
+        <strong>VIEW:</strong>
+        <button class="view-btn active" data-view="course">Course Page (DPhil)</button>
+        <button class="view-btn" data-view="finder">Project Finder</button>
+        <button class="view-btn" data-view="department">Department Page</button>
+    </div>
+
+    <!-- VIEW 1: COURSE PAGE -->
+    <div id="course-view" class="view active">
+        <div class="container">
+            <div class="header">
+                <h1>DPhil in Engineering Science</h1>
+                <p>Department of Engineering Science</p>
+                <p style="margin-top: 10px; font-size: 14px;">The DPhil in Engineering Science is a research degree that allows you to pursue in-depth investigation in your chosen field under the guidance of expert supervisors.</p>
+            </div>
+
+            <!-- Individual Projects Accordion -->
+            <div class="accordion">
+                <div class="accordion-header" data-accordion="projects">
+                    <span>Individual Projects</span>
+                    <span class="accordion-indicator">[+]</span>
+                </div>
+                <div class="accordion-content" data-accordion-content="projects">
+                    <!-- Project 1 -->
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div>
+                                <h3>Machine Learning for Autonomous Systems</h3>
+                                <p class="supervisor">Supervisor: Prof. Jane Smith</p>
+                            </div>
+                            <div class="badge">STUDENTSHIP AVAILABLE</div>
+                        </div>
+                        <div class="summary-box">
+                            This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
+                        </div>
+                        <div class="description">
+                            <h4>Full Description:</h4>
+                            <p>The project will investigate state-of-the-art neural network architectures for autonomous vehicle navigation, with particular emphasis on safety and robustness. You will develop novel algorithms that can handle uncertain sensor data and make reliable decisions in complex urban environments. The research will combine theoretical advances in machine learning with practical implementation on physical robot platforms.</p>
+                            <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong programming skills (Python, C++), knowledge of machine learning fundamentals, experience with robotics or computer vision preferred.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div>
+                                <h3>Quantum Computing for Optimization Problems</h3>
+                                <p class="supervisor">Supervisor: Dr. Michael Chen</p>
+                            </div>
+                        </div>
+                        <div class="summary-box">
+                            Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
+                        </div>
+                        <div class="description">
+                            <h4>Full Description:</h4>
+                            <p>This project aims to develop practical quantum algorithms that can outperform classical methods for combinatorial optimization. You will work on both theoretical algorithm design and experimental implementation using quantum computing platforms. The project includes collaboration with logistics companies to test algorithms on real-world problems.</p>
+                            <p style="margin-top: 10px;"><strong>Required Background:</strong> Strong mathematical foundation, quantum mechanics knowledge, programming experience, interest in practical applications.</p>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-item">
+                        <div class="project-header">
+                            <div>
+                                <h3>Sustainable Materials for Energy Storage</h3>
+                                <p class="supervisor">Supervisor: Prof. Sarah Williams</p>
+                            </div>
+                            <div class="badge">STUDENTSHIP AVAILABLE</div>
+                        </div>
+                        <div class="summary-box">
+                            Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
+                        </div>
+                        <div class="description">
+                            <h4>Full Description:</h4>
+                            <p>The research will focus on designing and synthesizing new battery electrode materials that avoid rare earth elements. You will use a combination of computational modeling and experimental synthesis to identify promising candidates, then characterize their electrochemical performance. The goal is to develop materials that can enable affordable, sustainable energy storage for grid applications.</p>
+                            <p style="margin-top: 10px;"><strong>Required Background:</strong> Chemistry or materials science background, laboratory experience, knowledge of electrochemistry preferred.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Components Accordion -->
+            <div class="accordion">
+                <div class="accordion-header" data-accordion="core">
+                    <span>Core Components</span>
+                    <span class="accordion-indicator">[+]</span>
+                </div>
+                <div class="accordion-content" data-accordion-content="core">
+                    <p style="margin-bottom: 15px;">All DPhil students must complete the following core components during their first year:</p>
+                    <div class="module-list">
+                        <div class="module-item">
+                            <h4>Research Skills and Methods</h4>
+                            <p class="module-code">ENG-RS-001</p>
+                            <p style="margin-top: 5px; font-size: 13px;">Introduction to research methodologies, experimental design, data analysis, and scientific communication. Includes ethics training and research integrity.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Literature Review and Proposal Development</h4>
+                            <p class="module-code">ENG-LR-002</p>
+                            <p style="margin-top: 5px; font-size: 13px;">Systematic literature review techniques, critical analysis of existing research, and development of a detailed research proposal.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Transfer Viva Preparation</h4>
+                            <p class="module-code">ENG-TV-003</p>
+                            <p style="margin-top: 5px; font-size: 13px;">Preparation for the transfer of status examination, including presentation skills and oral defense techniques.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Option Modules Accordion -->
+            <div class="accordion">
+                <div class="accordion-header" data-accordion="options">
+                    <span>Option Modules</span>
+                    <span class="accordion-indicator">[+]</span>
+                </div>
+                <div class="accordion-content" data-accordion-content="options">
+                    <p style="margin-bottom: 15px;">Students select 2-3 optional modules based on their research area:</p>
+                    <div class="module-list">
+                        <div class="module-item">
+                            <h4>Advanced Machine Learning</h4>
+                            <p class="module-code">ENG-AML-101</p>
+                            <p style="margin-top: 5px; font-size: 13px;">Deep learning, reinforcement learning, probabilistic models, and their applications in engineering.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Computational Fluid Dynamics</h4>
+                            <p class="module-code">ENG-CFD-102</p>
+                            <p style="margin-top: 5px; font-size: 13px;">Numerical methods for solving fluid flow problems, turbulence modeling, and high-performance computing.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Advanced Materials Characterization</h4>
+                            <p class="module-code">ENG-AMC-103</p>
+                            <p style="margin-top: 5px; font-size: 13px;">State-of-the-art techniques for materials analysis including electron microscopy, spectroscopy, and mechanical testing.</p>
+                        </div>
+                        <div class="module-item">
+                            <h4>Control Theory and Applications</h4>
+                            <p class="module-code">ENG-CTA-104</p>
+                            <p style="margin-top: 5px; font-size: 13px;">Modern control systems, optimal control, adaptive control, and applications in robotics and aerospace.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funding Section -->
+            <div class="container" style="background-color: #F3F4F6;">
+                <h2>Funding</h2>
+                <p style="margin-bottom: 15px;">Several studentships are available for this course. Projects with available funding are marked with a "STUDENTSHIP AVAILABLE" badge.</p>
+                <div style="border: 1px solid #000000; padding: 15px; background-color: #FFFFFF;">
+                    <h3>Current Funded Projects:</h3>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li style="margin-bottom: 5px;">Machine Learning for Autonomous Systems (Prof. Jane Smith)</li>
+                        <li style="margin-bottom: 5px;">Sustainable Materials for Energy Storage (Prof. Sarah Williams)</li>
+                    </ul>
+                    <p style="margin-top: 15px; font-size: 13px; font-style: italic;">Note: This list is automatically generated from projects with available studentships. Additional funding opportunities may be available through colleges and external sources.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 2: PROJECT FINDER -->
+    <div id="finder-view" class="view">
+        <div class="search-container">
+            <h1 style="margin-bottom: 15px;">Project Finder</h1>
+            <input type="text" class="search-input" placeholder="Search projects by keyword, supervisor, or research area...">
+        </div>
+
+        <div class="finder-layout">
+            <!-- Filters -->
+            <div class="filters">
+                <h3 style="margin-bottom: 15px;">Filters</h3>
+
+                <div class="filter-group">
+                    <label>Department</label>
+                    <select>
+                        <option>All Departments</option>
+                        <option>Engineering Science</option>
+                        <option>Computer Science</option>
+                        <option>Physics</option>
+                        <option>Mathematics</option>
+                        <option>Chemistry</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Research Area</label>
+                    <select>
+                        <option>All Areas</option>
+                        <option>Artificial Intelligence</option>
+                        <option>Robotics</option>
+                        <option>Quantum Computing</option>
+                        <option>Materials Science</option>
+                        <option>Bioengineering</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="funded-only">
+                        <label for="funded-only" style="margin: 0;">Funded Only</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results -->
+            <div class="results">
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <h3>Machine Learning for Autonomous Systems</h3>
+                            <p class="supervisor">Prof. Jane Smith | Engineering Science</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        This project explores novel deep learning architectures for real-time decision making in autonomous vehicles. Focus on safety-critical systems and robust perception under uncertainty.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <h3>Quantum Algorithms for Cryptography</h3>
+                            <p class="supervisor">Dr. Robert Taylor | Computer Science</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        Investigation of post-quantum cryptographic protocols and their implementation on near-term quantum devices. Focus on security proofs and practical deployment.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <h3>Quantum Computing for Optimization Problems</h3>
+                            <p class="supervisor">Dr. Michael Chen | Engineering Science</p>
+                        </div>
+                    </div>
+                    <div class="summary-box">
+                        Research into quantum algorithms for solving large-scale optimization problems in logistics and supply chain management. Collaboration with industry partners.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <h3>Sustainable Materials for Energy Storage</h3>
+                            <p class="supervisor">Prof. Sarah Williams | Engineering Science</p>
+                        </div>
+                        <div class="badge">STUDENTSHIP AVAILABLE</div>
+                    </div>
+                    <div class="summary-box">
+                        Development of novel electrode materials using sustainable, earth-abundant elements for next-generation battery technologies. Focus on improving energy density and cycle life.
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="project-header">
+                        <div>
+                            <h3>Neural Networks for Medical Imaging</h3>
+                            <p class="supervisor">Dr. Emily Brown | Engineering Science</p>
+                        </div>
+                    </div>
+                    <div class="summary-box">
+                        Development of AI systems for automated diagnosis from medical images. Focus on interpretability, reliability, and clinical validation.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- VIEW 3: DEPARTMENT PAGE -->
+    <div id="department-view" class="view">
+        <div class="container">
+            <div class="header">
+                <h1>Ruskin School of Art</h1>
+                <p style="margin-top: 10px;">The Ruskin School of Art is one of the leading centres for contemporary fine art practice and research in Europe. Our graduate programmes combine studio practice with critical and theoretical study.</p>
+            </div>
+
+            <h2 style="margin-bottom: 15px;">Graduate Courses</h2>
+            <div class="course-list">
+                <div class="course-item">
+                    <h3 class="course-link">MFA in Fine Art</h3>
+                    <p style="margin-top: 8px; font-size: 14px;">A two-year studio-based Master of Fine Arts programme that provides an intensive and supportive environment for the development of individual artistic practice.</p>
+                    <p style="margin-top: 8px; font-size: 13px; color: #000000;"><strong>Duration:</strong> 2 years | <strong>Mode:</strong> Full-time</p>
+                </div>
+
+                <div class="course-item">
+                    <h3 class="course-link">DPhil in Fine Art</h3>
+                    <p style="margin-top: 8px; font-size: 14px;">A research degree combining studio practice with written thesis. Candidates develop substantial body of work alongside critical and theoretical research.</p>
+                    <p style="margin-top: 8px; font-size: 13px; color: #000000;"><strong>Duration:</strong> 3-4 years | <strong>Mode:</strong> Full-time / Part-time</p>
+                </div>
+
+                <div class="course-item">
+                    <h3 class="course-link">MSt in History of Art and Visual Culture</h3>
+                    <p style="margin-top: 8px; font-size: 14px;">An intensive taught Masters programme exploring historical and contemporary approaches to art history and visual culture studies.</p>
+                    <p style="margin-top: 8px; font-size: 13px; color: #000000;"><strong>Duration:</strong> 1 year | <strong>Mode:</strong> Full-time</p>
+                </div>
+            </div>
+
+            <!-- Featured Studentships -->
+            <div class="featured-studentships">
+                <h2 style="margin-bottom: 15px;">Featured Studentships</h2>
+                <p style="margin-bottom: 20px; font-size: 14px;">The following funded projects are currently available across our graduate programmes:</p>
+
+                <div class="studentship-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                        <div>
+                            <h4>Contemporary Sculpture and Material Politics</h4>
+                            <p style="font-size: 13px; margin-top: 5px;">DPhil in Fine Art | Supervisor: Prof. David Thompson</p>
+                        </div>
+                        <div class="badge">FULL FUNDING</div>
+                    </div>
+                    <p style="font-size: 13px;">Investigation of sculpture practices that engage with environmental and material sustainability, exploring alternative materials and processes in contemporary art.</p>
+                </div>
+
+                <div class="studentship-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                        <div>
+                            <h4>Digital Media and Post-Internet Art</h4>
+                            <p style="font-size: 13px; margin-top: 5px;">DPhil in Fine Art | Supervisor: Dr. Lisa Anderson</p>
+                        </div>
+                        <div class="badge">FULL FUNDING</div>
+                    </div>
+                    <p style="font-size: 13px;">Research into artistic practices that respond to digital culture, examining how artists work with networked technologies and online platforms.</p>
+                </div>
+
+                <div class="studentship-item">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                        <div>
+                            <h4>Performance Art and Social Practice</h4>
+                            <p style="font-size: 13px; margin-top: 5px;">MFA in Fine Art | Supervisor: Prof. James Wilson</p>
+                        </div>
+                        <div class="badge">FULL FUNDING</div>
+                    </div>
+                    <p style="font-size: 13px;">Development of performance-based practice engaging with community participation and social engagement, exploring the boundaries between art and activism.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // View Switcher
+        const viewButtons = document.querySelectorAll('.view-btn');
+        const views = document.querySelectorAll('.view');
+
+        viewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetView = button.dataset.view;
+
+                // Update button states
+                viewButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                // Update view visibility
+                views.forEach(view => view.classList.remove('active'));
+                document.getElementById(`${targetView}-view`).classList.add('active');
+            });
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionId = header.dataset.accordion;
+                const content = document.querySelector(`[data-accordion-content="${accordionId}"]`);
+                const indicator = header.querySelector('.accordion-indicator');
+
+                // Toggle content
+                content.classList.toggle('active');
+
+                // Toggle indicator
+                if (content.classList.contains('active')) {
+                    indicator.textContent = '[-]';
+                } else {
+                    indicator.textContent = '[+]';
+                }
+            });
+        });
+
+        // Optional: Search functionality placeholder
+        const searchInput = document.querySelector('.search-input');
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                console.log('Search query:', e.target.value);
+                // Add search logic here if needed
+            });
+        }
+
+        // Optional: Filter functionality placeholder
+        const fundedOnlyCheckbox = document.getElementById('funded-only');
+        if (fundedOnlyCheckbox) {
+            fundedOnlyCheckbox.addEventListener('change', (e) => {
+                console.log('Funded only filter:', e.target.checked);
+                // Add filter logic here if needed
+            });
+        }
+    </script>
+</body>
+</html>
