@@ -510,6 +510,49 @@
             padding: 15px;
         }
 
+        /* Project Search and Pagination */
+        .project-search-box {
+            border: 1px solid #000000;
+            padding: 15px;
+            background-color: #F3F4F6;
+            margin-bottom: 20px;
+        }
+
+        .project-search-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000000;
+            font-family: inherit;
+            font-size: 14px;
+            background-color: #FFFFFF;
+        }
+
+        .project-count {
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .load-more-button {
+            background-color: #000000;
+            color: #FFFFFF;
+            border: 1px solid #000000;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .load-more-button:hover {
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+
+        .project-item.hidden {
+            display: none;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .finder-layout {
@@ -646,6 +689,15 @@
             <div class="section-accordion-content" data-section-content="individual-projects">
                 <p style="margin-bottom: 20px;">The following individual research projects are available for this DPhil programme. Click each project to view full details.</p>
 
+                <!-- Project Search -->
+                <div class="project-search-box">
+                    <label for="project-search" style="font-weight: bold; margin-bottom: 8px; display: block;">Search Projects</label>
+                    <input type="text" id="project-search" class="project-search-input" placeholder="Search by title, supervisor, or keywords...">
+                    <div class="project-count" id="project-count">Showing 3 of 3 projects</div>
+                </div>
+
+                <div id="projects-container">
+
                 <!-- Project 1 -->
                 <div class="project-item" data-project="ml-autonomous">
                     <div class="project-header">
@@ -704,6 +756,11 @@
                         <p style="margin-top: 10px;"><strong>Required Background:</strong> Chemistry or materials science background, laboratory experience, knowledge of electrochemistry preferred.</p>
                     </div>
                 </div>
+
+                </div><!-- End projects-container -->
+
+                <!-- Load More Button -->
+                <button class="load-more-button" id="load-more-projects" style="display: none;">Load More Projects</button>
             </div>
         </div>
 
@@ -831,7 +888,8 @@
     <div id="finder-view" class="view">
         <div class="search-container">
             <h1 style="margin-bottom: 15px;">Project Finder</h1>
-            <input type="text" class="search-input" placeholder="Search projects by keyword, supervisor, or research area...">
+            <input type="text" id="finder-search" class="search-input" placeholder="Search projects by keyword, supervisor, or research area...">
+            <div class="project-count" id="finder-count" style="margin-top: 10px;">Showing 5 of 5 projects</div>
         </div>
 
         <div class="finder-layout">
@@ -966,6 +1024,9 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Load More Button for Finder -->
+            <button class="load-more-button" id="load-more-finder" style="display: none; margin: 20px;">Load More Projects</button>
         </div>
     </div>
 
@@ -1136,6 +1197,203 @@
                 }
             });
         });
+
+        // Project search and pagination functionality
+        const projectSearchInput = document.getElementById('project-search');
+        const projectCountDisplay = document.getElementById('project-count');
+        const loadMoreButton = document.getElementById('load-more-projects');
+        const projectsContainer = document.getElementById('projects-container');
+
+        let allProjects = [];
+        let visibleCount = 20; // Show 20 projects initially
+        const projectsPerPage = 20; // Load 20 more each time
+
+        // Initialize: get all project items and set up pagination
+        function initializeProjects() {
+            allProjects = Array.from(document.querySelectorAll('#projects-container .project-item'));
+
+            if (allProjects.length > visibleCount) {
+                // Hide projects beyond initial count
+                allProjects.forEach((project, index) => {
+                    if (index >= visibleCount) {
+                        project.classList.add('hidden');
+                    }
+                });
+                loadMoreButton.style.display = 'block';
+            }
+
+            updateProjectCount();
+        }
+
+        // Update project count display
+        function updateProjectCount() {
+            const visibleProjects = allProjects.filter(p => !p.classList.contains('hidden'));
+            const totalProjects = allProjects.length;
+            projectCountDisplay.textContent = `Showing ${visibleProjects.length} of ${totalProjects} projects`;
+        }
+
+        // Search functionality
+        if (projectSearchInput) {
+            projectSearchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                let matchCount = 0;
+
+                allProjects.forEach(project => {
+                    const title = project.querySelector('h3').textContent.toLowerCase();
+                    const supervisor = project.querySelector('.supervisor').textContent.toLowerCase();
+                    const summary = project.querySelector('.summary-box').textContent.toLowerCase();
+
+                    const matches = title.includes(searchTerm) ||
+                                  supervisor.includes(searchTerm) ||
+                                  summary.includes(searchTerm);
+
+                    if (matches) {
+                        project.classList.remove('hidden');
+                        matchCount++;
+                    } else {
+                        project.classList.add('hidden');
+                    }
+                });
+
+                // Update count and hide load more button when searching
+                if (searchTerm) {
+                    projectCountDisplay.textContent = `Showing ${matchCount} of ${allProjects.length} projects`;
+                    loadMoreButton.style.display = 'none';
+                } else {
+                    // Reset to pagination view
+                    allProjects.forEach((project, index) => {
+                        if (index < visibleCount) {
+                            project.classList.remove('hidden');
+                        } else {
+                            project.classList.add('hidden');
+                        }
+                    });
+                    loadMoreButton.style.display = visibleCount < allProjects.length ? 'block' : 'none';
+                    updateProjectCount();
+                }
+            });
+        }
+
+        // Load more functionality
+        if (loadMoreButton) {
+            loadMoreButton.addEventListener('click', () => {
+                const currentlyHidden = allProjects.filter(p => p.classList.contains('hidden'));
+                const toShow = currentlyHidden.slice(0, projectsPerPage);
+
+                toShow.forEach(project => {
+                    project.classList.remove('hidden');
+                });
+
+                visibleCount += toShow.length;
+
+                // Hide button if all projects are now visible
+                if (currentlyHidden.length <= projectsPerPage) {
+                    loadMoreButton.style.display = 'none';
+                }
+
+                updateProjectCount();
+            });
+        }
+
+        // Initialize when page loads
+        if (projectsContainer) {
+            // Wait a bit for DOM to be fully ready
+            setTimeout(initializeProjects, 100);
+        }
+
+        // Project Finder search and pagination
+        const finderSearchInput = document.getElementById('finder-search');
+        const finderCountDisplay = document.getElementById('finder-count');
+        const loadMoreFinderButton = document.getElementById('load-more-finder');
+        const finderResults = document.querySelector('#finder-view .results');
+
+        let allFinderProjects = [];
+        let finderVisibleCount = 20;
+
+        function initializeFinderProjects() {
+            allFinderProjects = Array.from(document.querySelectorAll('#finder-view .results .project-item'));
+
+            if (allFinderProjects.length > finderVisibleCount) {
+                allFinderProjects.forEach((project, index) => {
+                    if (index >= finderVisibleCount) {
+                        project.classList.add('hidden');
+                    }
+                });
+                loadMoreFinderButton.style.display = 'block';
+            }
+
+            updateFinderCount();
+        }
+
+        function updateFinderCount() {
+            const visibleProjects = allFinderProjects.filter(p => !p.classList.contains('hidden'));
+            finderCountDisplay.textContent = `Showing ${visibleProjects.length} of ${allFinderProjects.length} projects`;
+        }
+
+        // Finder search functionality
+        if (finderSearchInput) {
+            finderSearchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                let matchCount = 0;
+
+                allFinderProjects.forEach(project => {
+                    const title = project.querySelector('h3').textContent.toLowerCase();
+                    const supervisor = project.querySelector('.supervisor').textContent.toLowerCase();
+                    const summary = project.querySelector('.summary-box').textContent.toLowerCase();
+
+                    const matches = title.includes(searchTerm) ||
+                                  supervisor.includes(searchTerm) ||
+                                  summary.includes(searchTerm);
+
+                    if (matches) {
+                        project.classList.remove('hidden');
+                        matchCount++;
+                    } else {
+                        project.classList.add('hidden');
+                    }
+                });
+
+                if (searchTerm) {
+                    finderCountDisplay.textContent = `Showing ${matchCount} of ${allFinderProjects.length} projects`;
+                    loadMoreFinderButton.style.display = 'none';
+                } else {
+                    allFinderProjects.forEach((project, index) => {
+                        if (index < finderVisibleCount) {
+                            project.classList.remove('hidden');
+                        } else {
+                            project.classList.add('hidden');
+                        }
+                    });
+                    loadMoreFinderButton.style.display = finderVisibleCount < allFinderProjects.length ? 'block' : 'none';
+                    updateFinderCount();
+                }
+            });
+        }
+
+        // Finder load more functionality
+        if (loadMoreFinderButton) {
+            loadMoreFinderButton.addEventListener('click', () => {
+                const currentlyHidden = allFinderProjects.filter(p => p.classList.contains('hidden'));
+                const toShow = currentlyHidden.slice(0, projectsPerPage);
+
+                toShow.forEach(project => {
+                    project.classList.remove('hidden');
+                });
+
+                finderVisibleCount += toShow.length;
+
+                if (currentlyHidden.length <= projectsPerPage) {
+                    loadMoreFinderButton.style.display = 'none';
+                }
+
+                updateFinderCount();
+            });
+        }
+
+        // Initialize finder projects
+        if (finderResults) {
+            setTimeout(initializeFinderProjects, 100);
+        }
     </script>
 </body>
 </html>
