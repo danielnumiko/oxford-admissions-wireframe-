@@ -23,6 +23,120 @@
             scroll-behavior: smooth;
         }
 
+        /* Header */
+        .site-header {
+            border: 1px solid #000000;
+            border-bottom: 3px solid #000000;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+            background-color: #F3F4F6;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-logo {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .site-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .site-nav a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .site-nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            border: 1px solid #000000;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #FFFFFF;
+            font-size: 13px;
+        }
+
+        .breadcrumb a {
+            color: #000000;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            margin: 0 8px;
+        }
+
+        /* Footer */
+        .site-footer {
+            border: 1px solid #000000;
+            border-top: 3px solid #000000;
+            padding: 30px 20px;
+            margin-top: 40px;
+            background-color: #F3F4F6;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-column h3 {
+            font-size: 14px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-column a {
+            color: #000000;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .footer-column a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #000000;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+        }
+
         /* View Switcher */
         .view-switcher {
             border: 1px solid #000000;
@@ -572,10 +686,55 @@
             .quick-links-grid {
                 grid-template-columns: 1fr;
             }
+
+            .site-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .site-nav {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="site-logo">[OXFORD UNIVERSITY LOGO]</div>
+        <nav class="site-nav">
+            <a href="#">Admissions</a>
+            <a href="#">About</a>
+            <a href="#">Research</a>
+            <a href="#">Study</a>
+            <a href="#">Alumni</a>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb">
+        <a href="#">Home</a>
+        <span>›</span>
+        <a href="#">Admissions</a>
+        <span>›</span>
+        <a href="#">Graduate</a>
+        <span>›</span>
+        <span>Course</span>
+    </nav>
+
     <!-- View Switcher -->
     <div class="view-switcher">
         <strong>VIEW:</strong>
@@ -1200,6 +1359,65 @@
             </div>
         </div>
     </div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Information About</h3>
+                <ul>
+                    <li><a href="#">Student experience</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">Departments</a></li>
+                    <li><a href="#">Colleges</a></li>
+                    <li><a href="#">Fees & funding</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Information For</h3>
+                <ul>
+                    <li><a href="#">Prospective students</a></li>
+                    <li><a href="#">Current students</a></li>
+                    <li><a href="#">Alumni</a></li>
+                    <li><a href="#">Staff</a></li>
+                    <li><a href="#">Visitors</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Maps</a></li>
+                    <li><a href="#">News</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Jobs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <ul>
+                    <li><a href="#">Privacy policy</a></li>
+                    <li><a href="#">Cookie policy</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Freedom of information</a></li>
+                    <li><a href="#">Copyright</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>
+                <strong>University of Oxford</strong>
+                <p style="margin-top: 5px;">© 2026 University of Oxford</p>
+            </div>
+            <div class="social-links">
+                <div class="social-link">fb</div>
+                <div class="social-link">tw</div>
+                <div class="social-link">in</div>
+                <div class="social-link">yt</div>
+                <div class="social-link">ig</div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Generate 78 projects for Population Health example
